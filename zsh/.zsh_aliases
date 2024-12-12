@@ -71,9 +71,9 @@ alias wpods="watch \"kubectl -n production get pods\""
 # alias logs="python3 ~/cpp/Autonomous-Ai-drone-scripts/scripts/log_tools/logs.py"
 
 # ZSH
-alias zrc="nvim ~/.zshrc"
+alias zrc="nvim ~/dotfiles/zsh/.zshrc"
 alias zsrc="source ~/.zshrc"
-alias zal="nvim ~/.zsh_aliases"
+alias zal="nvim ~/dotfiles/zsh/.zsh_aliases"
 
 # NixOS aliases
 alias ne="nvim ~/dotfiles/nix/flake.nix"
