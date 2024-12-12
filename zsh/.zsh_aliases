@@ -1,0 +1,83 @@
+alias c='clear'
+
+alias ls="exa -F"
+alias ll="exa -alhF"
+alias tree="exa --tree"
+
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+
+alias mkdir='mkdir -pv'
+
+alias h='history'
+
+# Git aliases
+
+alias gs='git status'
+alias gd='git diff'
+alias glog='git log --pretty=format:"%C(green)%h  %C(yellow)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'
+alias gb='git branch'
+alias gcb='git checkout `git branch | fzf`'
+
+alias go='git checkout'
+alias gob='git checkout -b'
+alias ga='git add'
+alias gaa='git add -A'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gca='gaa && gcm'
+
+alias gps='git push'
+alias gpsf='git push --force'
+alias gpsn='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
+alias gpl='git pull --rebase'
+
+alias grm='git checkout master && git pull && git checkout - && git rebase master'
+
+alias git-delete-all='git branch | grep -v "master" | grep -v "develop" | grep -v ^* | xargs git branch -D'
+alias fresh='go master && gpl && gob'
+
+# Web development
+alias chrome='open -a "Google Chrome"'
+alias cu='chrome https://app.clickup.com'
+alias serve="browser-sync start -s -f . --no-notify --host $LOCAL_IP --port 9000"
+alias cc="~/mate/website/cli-tools/createComponent/createComponent.js"
+alias ports='netstat -tulanp'
+
+# tmux
+alias d="tmux detach"
+alias aw="tmux attach -t website"
+alias ac="tmux attach -t configs"
+alias ad="tmux attach -t db"
+
+# Kubernetes
+alias k="kubectl"
+alias kp="k -n production"
+alias pods="kp get pods"
+alias wpods="watch \"kubectl -n production get pods\""
+
+# Drones
+# alias python='/usr/bin/python3'
+# alias waf='/Users/yuriiholiuk/cpp/ardupilot/modules/waf/waf-light'
+# alias rpi='ssh bionicus@192.168.1.125'
+# alias fly='npm start'
+# alias plot='npm run plot'
+# alias jetson='ssh -Y -X jetson@192.168.150.1'
+# alias corin='ssh -Y -X jetson@192.168.55.1'
+# alias vfix="~/cpp/Autonomous-Ai-drone-scripts/scripts/video_tools/fix_videos.sh"
+# alias vslice="~/cpp/Autonomous-Ai-drone-scripts/scripts/video_tools/slice_video.sh"
+# alias vtrim="~/cpp/Autonomous-Ai-drone-scripts/scripts/video_tools/trim_video.sh"
+# alias logs="python3 ~/cpp/Autonomous-Ai-drone-scripts/scripts/log_tools/logs.py"
+
+# ZSH
+alias zrc="nvim ~/.zshrc"
+alias zsrc="source ~/.zshrc"
+alias zal="nvim ~/.zsh_aliases"
+
+# NixOS aliases
+alias ne="nvim ~/dotfiles/nix/flake.nix"
+alias neh="nvim ~/dotfiles/nix/home.nix"
+alias ni="darwin-rebuild switch --flake ~/dotfiles/nix"
+
+

@@ -15,16 +15,16 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".zshrc".source = ~/dotfiles/zshrc/.zshrc;
-    ".zsh_aliases".source = ~/dotfiles/zshrc/.zsh_aliases;
-    ".wezterm.lua".source = ~/dotfiles/wezterm/.wezterm.lua;
+    ".zshrc".source = ../zsh/.zshrc;
+    ".zsh_aliases".source = ../zsh/.zsh_aliases;
+    ".wezterm.lua".source = ../wezterm/.wezterm.lua;
     # ".config/skhd".source = ~/dotfiles/skhd;
     # ".config/starship".source = ~/dotfiles/starship;
     # ".config/zellij".source = ~/dotfiles/zellij;
-    ".config/nvim".source = ~/dotfiles/nvim;
+    ".config/nvim".source = ../nvim;
     # ".config/nix".source = ~/dotfiles/nix;
     # ".config/nix-darwin".source = ~/dotfiles/nix-darwin;
-    ".tmux.conf".source = ~/dotfiles/tmux/.tmux.conf;
+    ".tmux.conf".source = ../tmux/.tmux.conf;
     # ".config/ghostty".source = ~/dotfiles/ghostty;
     # ".config/aerospace".source = ~/dotfiles/aerospace;
     # ".config/sketchybar".source = ~/dotfiles/sketchybar;
