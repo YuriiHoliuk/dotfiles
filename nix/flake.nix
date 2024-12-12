@@ -26,7 +26,7 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, nixpkgs }:
+  outputs = inputs@{ self, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, nixpkgs, home-manager }:
     let
       configuration = { pkgs, config, ... }: {
 
@@ -59,7 +59,6 @@
         homebrew = {
           enable = true;
           brews = [
-            # Add unavailable formulae here
             "allure"
             "lsusb"
             "helm"
@@ -97,7 +96,7 @@
           app_name=$(basename "$src")
           echo "copying $src" >&2
             ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
-        done:
+        done;
           '';
 
         # Necessary for using flakes on this system.
@@ -119,7 +118,7 @@
         programs.zsh.enable = true;
         security.pam.enableSudoTouchIdAuth = true;
 
-        users.users.omerxx.home = "/Users/yuriiholiuk";
+        users.users.yuriiholiuk.home = "/Users/yuriiholiuk";
         home-manager.backupFileExtension = "backup";
         nix.configureBuildUsers = true;
         nix.useDaemon = true;
@@ -152,11 +151,11 @@
               user = "yuriiholiuk";
 
               # Optional: Declarative tap management
-              # taps = {
-              #   "homebrew/homebrew-core" = homebrew-core;
-              #   "homebrew/homebrew-cask" = homebrew-cask;
-              #   "homebrew/homebrew-bundle" = homebrew-bundle;
-              # };
+              taps = {
+                "homebrew/homebrew-core" = homebrew-core;
+                "homebrew/homebrew-cask" = homebrew-cask;
+                "homebrew/homebrew-bundle" = homebrew-bundle;
+              };
 
               # Optional: Enable fully-declarative tap management
               #

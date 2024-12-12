@@ -22,7 +22,7 @@
     # ".config/starship".source = ~/dotfiles/starship;
     # ".config/zellij".source = ~/dotfiles/zellij;
     ".config/nvim".source = ~/dotfiles/nvim;
-    ".config/nix".source = ~/dotfiles/nix;
+    # ".config/nix".source = ~/dotfiles/nix;
     # ".config/nix-darwin".source = ~/dotfiles/nix-darwin;
     ".tmux.conf".source = ~/dotfiles/tmux/.tmux.conf;
     # ".config/ghostty".source = ~/dotfiles/ghostty;
