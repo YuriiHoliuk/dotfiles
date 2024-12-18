@@ -64,13 +64,13 @@
             "helm"
             "kubernetes-cli"
             "powerlevel10k"
-            "kanata"
           ];
           casks = [
             "ngrok"
             "raycast"
             "wezterm"
             "font-meslo-lg-nerd-font"
+            "karabiner-elements"
           ];
           onActivation.cleanup = "zap";
         };
