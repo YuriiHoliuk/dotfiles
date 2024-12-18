@@ -19,6 +19,7 @@
     ".zsh_aliases".source = ../zsh/.zsh_aliases;
     ".p10k.zsh".source =  ../p10k/.p10k.zsh;
     ".wezterm.lua".source = ../wezterm/.wezterm.lua;
+    ".config/kanata".source = ../kanata;
     # ".config/skhd".source = ~/dotfiles/skhd;
     # ".config/starship".source = ~/dotfiles/starship;
     # ".config/zellij".source = ~/dotfiles/zellij;
