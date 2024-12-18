@@ -17,6 +17,7 @@
   home.file = {
     ".zshrc".source = ../zsh/.zshrc;
     ".zsh_aliases".source = ../zsh/.zsh_aliases;
+    ".p10k.zsh".source =  ../p10k/.p10k.zsh;
     ".wezterm.lua".source = ../wezterm/.wezterm.lua;
     # ".config/skhd".source = ~/dotfiles/skhd;
     # ".config/starship".source = ~/dotfiles/starship;

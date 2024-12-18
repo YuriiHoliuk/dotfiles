@@ -64,6 +64,7 @@
             "helm"
             "kubernetes-cli"
             "powerlevel10k"
+            "kanata"
           ];
           casks = [
             "ngrok"
