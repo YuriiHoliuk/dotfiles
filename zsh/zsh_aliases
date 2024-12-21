@@ -3,6 +3,7 @@ alias c='clear'
 alias ls="exa -F"
 alias ll="exa -alhF"
 alias tree="exa --tree"
+alias z="cd"
 
 alias ..='cd ../'
 alias ...='cd ../../'

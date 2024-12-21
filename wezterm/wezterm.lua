@@ -11,6 +11,7 @@ config.window_background_opacity = 0.9
 config.macos_window_background_blur = 10
 
 -- config.color_scheme = "Cappuccin Mocha"
+-- config.color_scheme = "Catppuccin Frappe"
 
 config.colors = {
 	foreground = "#CBE0F0",
