@@ -45,6 +45,7 @@ alias cu='chrome https://app.clickup.com'
 alias serve="browser-sync start -s -f . --no-notify --host $LOCAL_IP --port 9000"
 alias cc="~/mate/website/cli-tools/createComponent/createComponent.js"
 alias ports='netstat -tulanp'
+alias e2e="tmuxinator start website-e2e"
 
 # tmux
 alias d="tmux detach"

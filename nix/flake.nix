@@ -55,6 +55,9 @@
           eza
           yazi
           rustup
+          tmuxinator
+          fd
+          delta
         ];
 
         homebrew = {
