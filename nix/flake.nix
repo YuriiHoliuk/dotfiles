@@ -58,6 +58,7 @@
           tmuxinator
           fd
           delta
+          pgcli
         ];
 
         homebrew = {
