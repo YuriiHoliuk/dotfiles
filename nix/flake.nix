@@ -59,6 +59,7 @@
           fd
           delta
           pgcli
+          gtypist
         ];
 
         homebrew = {

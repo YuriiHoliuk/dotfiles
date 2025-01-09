@@ -21,6 +21,7 @@
     ".wezterm.lua".source = ../wezterm/wezterm.lua;
     ".gitconfig".source = ../git/gitconfig;
     ".config/pgcli/config".source = ../pgcli/config;
+    ".config/tmuxinator".source = ../tmuxinator;
     # ".config/skhd".source = ~/dotfiles/skhd;
     # ".config/starship".source = ~/dotfiles/starship;
     # ".config/zellij".source = ~/dotfiles/zellij;
