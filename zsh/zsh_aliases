@@ -21,7 +21,7 @@ alias glog='git log --pretty=format:"%C(green)%h  %C(yellow)%ad%Cred%d\\ %Creset
 alias gb='git branch'
 alias gcb='git checkout `git branch | fzf`'
 alias echho='echo'
-alias hello='echho "Hello!"'
+alias hello='echho "Hello."'
 
 alias go='git checkout'
 alias gob='git checkout -b'
