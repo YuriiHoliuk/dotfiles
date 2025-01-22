@@ -10,4 +10,4 @@ windows:
         - make run-e2e-backend
         - make run-e2e-frontend
         - sleep 15 && make db-e2e
-        - cd e2e && sleep 60 && npm run pw:run:local-setup && npm run pw:run:local-open-debug
+        - cd e2e && sleep 90 && npm run pw:run:local-setup && npm run pw:run:local-open-debug

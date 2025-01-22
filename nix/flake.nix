@@ -59,7 +59,9 @@
           fd
           delta
           pgcli
-          gtypist
+          ripgrep
+          slides
+          figlet
         ];
 
         homebrew = {
