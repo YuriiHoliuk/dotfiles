@@ -138,8 +138,8 @@
     in
     {
       # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#MacBook-Pro-2
-      darwinConfigurations."MacBook-Pro-2" = nix-darwin.lib.darwinSystem {
+      # $ darwin-rebuild build --flake .#MacBook-Pro-4
+      darwinConfigurations."MacBook-Pro-4" = nix-darwin.lib.darwinSystem {
         modules = [
           configuration
 
@@ -177,6 +177,6 @@
         ];
       };
 
-      darwinPackages = self.darwinConfigurations."MacBook-Pro-2".pkgs;
+      darwinPackages = self.darwinConfigurations."MacBook-Pro-4".pkgs;
     };
 }
