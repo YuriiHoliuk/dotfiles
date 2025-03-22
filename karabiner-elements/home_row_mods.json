@@ -34,7 +34,7 @@
             ],
             "type": "basic"
         },
-        {
+        { 
             "from": {
                 "simultaneous": [
                     { "key_code": "a" },

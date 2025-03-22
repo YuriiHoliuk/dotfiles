@@ -62,6 +62,7 @@
           ripgrep
           slides
           gh
+          mas
         ];
 
         homebrew = {
@@ -79,7 +80,15 @@
             "wezterm"
             "font-meslo-lg-nerd-font"
             "karabiner-elements"
+            "bitwarden"
           ];
+          masApps = {
+            "Slack" = 803453959;
+            "Cursor" = 583478137;
+            "Figma" = 1423215405;
+            # "Xcode" = 497799835;
+            "Xcode Command Line Tools" = 1124601461;
+          };
           onActivation.cleanup = "zap";
         };
 
@@ -128,18 +137,30 @@
         nix.configureBuildUsers = true;
         nix.useDaemon = true;
         system.defaults = {
-          dock.autohide = true;
-          dock.mru-spaces = false;
-          finder.AppleShowAllExtensions = true;
-          finder.FXPreferredViewStyle = "clmv";
-          screensaver.askForPasswordDelay = 10;
+          dock = {
+            autohide = true;
+            mru-spaces = false;
+            magnification = true;
+            largesize = 90;
+          };
+          finder = {
+            AppleShowAllExtensions = true;
+            FXPreferredViewStyle = "clmv";
+          };
+          screensaver = {
+            askForPasswordDelay = 10;
+          };
+          NSGlobalDomain = {
+            KeyRepeat = 2;
+            InitialKeyRepeat = 10;
+          };
         };
       };
     in
     {
       # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#MacBook-Pro-4
-      darwinConfigurations."MacBook-Pro-4" = nix-darwin.lib.darwinSystem {
+      # $ darwin-rebuild build --flake .#Yuriis-MacBook-Pro
+      darwinConfigurations."Yuriis-MacBook-Pro" = nix-darwin.lib.darwinSystem {
         modules = [
           configuration
 
@@ -177,6 +198,6 @@
         ];
       };
 
-      darwinPackages = self.darwinConfigurations."MacBook-Pro-4".pkgs;
+      darwinPackages = self.darwinConfigurations."Yuriis-MacBook-Pro".pkgs;
     };
 }
