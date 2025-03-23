@@ -63,6 +63,7 @@
           slides
           gh
           mas
+          fnm
         ];
 
         homebrew = {
@@ -80,14 +81,22 @@
             "wezterm"
             "font-meslo-lg-nerd-font"
             "karabiner-elements"
+            "visual-studio-code"
+            "google-chrome"
+            "obsidian"
+            "docker"
+            "chatgpt"
+            "telegram"
             "bitwarden"
+            "figma"
+            "slack"
           ];
           masApps = {
-            "Slack" = 803453959;
-            "Cursor" = 583478137;
-            "Figma" = 1423215405;
+            # "Slack" = 803453959;
+            # "Cursor" = 583478137;
+            # "Figma" = 1423215405;
             # "Xcode" = 497799835;
-            "Xcode Command Line Tools" = 1124601461;
+            # "Xcode Command Line Tools" = 1124601461;
           };
           onActivation.cleanup = "zap";
         };

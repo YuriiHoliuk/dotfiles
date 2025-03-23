@@ -4,3 +4,27 @@ included into Nix flake.
 
 But there are things like manual installations, downloads (at least, need to install Nix).
 Some of them are automated in `./setup.sh`, others are described here.
+
+## On a fresh Mac
+### Run setup script
+```bash
+curl -L https://bit.ly/new_mac_setup | bash
+```
+It will setup git, install Nix, clone this repo, install and configure everything from the flake.
+
+### Install UI apps manually
+- Setup Karabiner elements. Copy settings from this repo.
+- [Download](https://arc.net/download) and install Arc browser. *Login with personal default account.*
+- [Download](https://app.grammarly.com/apps) and install Grammarly. Login in web and go via the link to download Desktop app.
+- [ ] Add settings, keybindings, extensions list and extension install script for Cursor as discussed here [Chat ChatGPT()](https://chatgpt.com/share/67e07354-4da4-800f-8bc2-aa951445d106)
+- [ ] Consider Raycast Pro or another backup.
+- [ ] Think about passwords backup or Arc replacements.
+
+### Setup for Mate academy work
+- Install AWS VPN Client and login to password manager using [this guide (ClickUp)](https://app.clickup.com/24383048/v/dc/q83j8-12520/q83j8-335907).
+- Run `npm login`. Use shared password.
+- [ ] aws cli setup
+- [ ] kubectl cli login
+- Clone website `mkdir ~/mate && cd mate && git clone website`.
+- Log in into Slack using old email y.holiuk@mate.academy.
+- Log in into Figma using shared account. Login with personal on the web.
