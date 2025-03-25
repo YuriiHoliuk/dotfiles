@@ -53,6 +53,9 @@ alias aw="tmux attach -t website"
 alias ac="tmux attach -t configs"
 alias ad="tmux attach -t db"
 
+# Home files
+alias stw="stow --dir="$HOME/dotfiles" --target="$HOME" home-files"
+
 # Kubernetes
 alias k="kubectl"
 alias kp="k -n production"

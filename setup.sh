@@ -50,6 +50,9 @@ nix run github:LnL7/nix-darwin#darwin-rebuild -- switch --flake .#$hostname
 fnm install --lts
 fnm use --lts
 
+# Copy home files
+stw
+
 # Extract and install Cursor extensions
 echo "Extracting Cursor extensions..."
 jq -r '.[].identifier.id' ~/.cursor/extensions.json > ~/dotfiles/cursor/installed-extensions.txt

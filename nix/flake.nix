@@ -64,6 +64,7 @@
           gh
           mas
           fnm
+          stow
         ];
 
         homebrew = {
