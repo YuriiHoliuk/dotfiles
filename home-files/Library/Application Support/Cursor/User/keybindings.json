@@ -1,6 +1,11 @@
 // Empty
 [
   {
+    "key": "cmd+enter",  // or choose your preferred key combination
+    "command": "gitlens.openFile",
+    "when": "gitlens:activeFileStatus =~ /tracked|modified/"
+  },
+  {
     "key": "shift+cmd+w",
     "command": "-workbench.action.closeWindow"
   },
@@ -17,19 +22,32 @@
     "command": "workbench.files.action.showActiveFileInExplorer"
   },
   {
+    "key": "cmd+[", 
+    "command": "workbench.action.navigateBack"
+  },
+  {
+    "key": "cmd+]", 
+    "command": "workbench.action.navigateForward"
+  },
+  {
+    "key": "alt+cmd+r",
+    "command": "-revealFileInOS",
+    "when": "!editorFocus"
+  },
+  {
+    "key": "alt+o",
+    "command": "-C_Cpp.SwitchHeaderSource",
+    "when": "editorTextFocus && editorLangId =~ /^(c|(cuda-)?cpp)$/ && !(config.C_Cpp.intelliSenseEngine =~ /^[dD]isabled$/)"
+  },
+  {
     "key": "shift+cmd+c",
     "command": "-workbench.action.terminal.openNativeConsole",
     "when": "!terminalFocus"
   },
   {
-    "key": "alt+cmd+c",
-    "command": "-copyFilePath",
+    "key": "shift+cmd+c",
+    "command": "copyRelativeFilePath",
     "when": "!editorFocus"
-  },
-  {
-    "key": "cmd+r alt+cmd+c",
-    "command": "-copyFilePath",
-    "when": "editorFocus"
   },
   {
     "key": "shift+alt+cmd+c",
@@ -37,21 +55,45 @@
     "when": "!editorFocus"
   },
   {
+    "key": "shift+cmd+c",
+    "command": "copyRelativeFilePath",
+    "when": "editorFocus"
+  },
+  {
     "key": "cmd+r shift+alt+cmd+c",
     "command": "-copyRelativeFilePath",
     "when": "editorFocus"
   },
   {
-    "key": "shift+cmd+c",
-    "command": "copyRelativeFilePath"
+    "key": "shift+alt+p",
+    "command": "workbench.action.pinEditor",
+    "when": "!activeEditorIsPinned"
   },
   {
-    "key": "alt+cmd+c",
-    "command": "-search.action.copyPath",
-    "when": "fileMatchOrFolderMatchWithResourceFocus"
+    "key": "cmd+r shift+enter",
+    "command": "-workbench.action.pinEditor",
+    "when": "!activeEditorIsPinned"
   },
   {
-    "key": "cmd+r p",
-    "command": "-workbench.action.files.copyPathOfActiveFile"
+    "key": "shift+alt+p",
+    "command": "workbench.action.unpinEditor",
+    "when": "activeEditorIsPinned"
+  },
+  {
+    "key": "cmd+r shift+enter",
+    "command": "-workbench.action.unpinEditor",
+    "when": "activeEditorIsPinned"
+  },
+  {
+    "key": "shift+alt+w",
+    "command": "workbench.action.closeAllEditors"
+  },
+  {
+    "key": "cmd+r cmd+w",
+    "command": "-workbench.action.closeAllEditors"
+  },
+  {
+    "key": "shift+alt+c",
+    "command": "workbench.files.action.collapseExplorerFolders"
   }
 ]
