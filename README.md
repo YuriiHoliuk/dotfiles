@@ -18,7 +18,7 @@ It will setup git, install Nix, clone this repo, install and configure everythin
 - [Download](https://app.grammarly.com/apps) and install Grammarly. Login in web and go via the link to download Desktop app.
 - [ ] Think about passwords backup or Arc replacements.
 - [ ] More commands for creating tmux sessions.
-- Signal, Whatsapp
+
 
 ### Setup for Mate academy work
 - Install AWS VPN Client and login to password manager using [this guide (ClickUp)](https://app.clickup.com/24383048/v/dc/q83j8-12520/q83j8-335907).

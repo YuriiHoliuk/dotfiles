@@ -91,6 +91,8 @@
             "bitwarden"
             "figma"
             "slack"
+            "signal"
+            "whatsapp"
           ];
           masApps = {
             # "Slack" = 803453959;
