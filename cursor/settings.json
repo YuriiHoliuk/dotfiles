@@ -1,0 +1,194 @@
+{
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/*.generated.ts": true,
+        "**/generated.ts": true
+    },
+    "editor.tabSize": 2,
+    "materialTheme.accent": "Graphite",
+    "workbench.colorCustomizations": {
+        "activityBarBadge.background": "#616161",
+        "list.activeSelectionForeground": "#616161",
+        "list.inactiveSelectionForeground": "#616161",
+        "list.highlightForeground": "#616161",
+        "scrollbarSlider.activeBackground": "#61616150",
+        "editorSuggestWidget.highlightForeground": "#616161",
+        "textLink.foreground": "#616161",
+        "progressBar.background": "#616161",
+        "pickerGroup.foreground": "#616161",
+        "tab.activeBorder": "#616161",
+        "notificationLink.foreground": "#616161",
+        "editorWidget.resizeBorder": "#616161",
+        "editorWidget.border": "#616161",
+        "settings.modifiedItemIndicator": "#616161",
+        "settings.headerForeground": "#616161",
+        "panelTitle.activeBorder": "#616161",
+        "breadcrumb.activeSelectionForeground": "#616161",
+        "menu.selectionForeground": "#616161",
+        "menubar.selectionForeground": "#616161",
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.debuggingForeground": "#ffffff"
+    },
+    "materialTheme.autoApplyIcons": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "bracketPairColorizer.showBracketsInGutter": true,
+    "workbench.sideBar.location": "left",
+    "jshint.options": {
+        "esversion": 6
+    },
+    "breadcrumbs.enabled": true,
+    "editor.fontFamily": "\"MesloLGS Nerd Font Mono\"",
+    "editor.fontLigatures": true,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "comment",
+                    "entity.name.type.class",
+                    "keyword",
+                    "constant",
+                    "storage.modifier",
+                    "storage.type.class.js"
+                ],
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": [
+                    "invalid",
+                    "keyword.operator",
+                    "constant.numeric.css",
+                    "keyword.other.unit.px.css",
+                    "constant.numeric.decimal.js",
+                    "constant.numeric.json"
+                ],
+                "settings": {
+                    "fontStyle": ""
+                }
+            }
+        ]
+    },
+    "files.eol": "\n",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "vue-html": "html"
+    },
+    "sync.gist": "",
+    "terminal.integrated.fontFamily": "monospace",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "editor.tabCompletion": "on",
+    "workbench.editor.highlightModifiedTabs": true,
+    "editor.renderWhitespace": "all",
+    "editor.renderControlCharacters": false,
+    "merge-conflict.autoNavigateNextConflict.enabled": true,
+    "workbench.editor.enablePreview": true,
+    "workbench.editor.closeEmptyGroups": true,
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "terminal.integrated.rendererType": "dom",
+    "vscode-postgres.prettyPrintJSONfields": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "makefileCommandRunner.filePathEnv": "",
+    "workbench.iconTheme": "material-icon-theme",
+    "makefileCommandRunner.makefilePath": "./Makefile",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "pgsql.connections": [
+        {
+            "host": "mateacademy-database-development.cqw7zu22pde8.eu-central-1.rds.amazonaws.com",
+            "dbname": "mate_development",
+            "user": "dev",
+            "password": "",
+            "emptyPasswordInput": false,
+            "port": "5432",
+            "profileName": "DB Development"
+        }
+    ],
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+    "editor.minimap.enabled": false,
+    "html.format.enable": false,
+    "todo-tree.tree.showScanModeButton": false,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "linthtml.configFile": ".linthtmlrc.json",
+    "linthtml.enable": false,
+    "vim.easymotion": true,
+    "vim.enableNeovim": true,
+    "vim.foldfix": true,
+    "vim.highlightedyank.enable": true,
+    "vim.hlsearch": true,
+    "vim.smartRelativeLine": true,
+    "vim.sneak": true,
+    "redhat.telemetry.enabled": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb",
+        "*.png": "editor.excalidraw"
+    },
+    "workbench.colorTheme": "Default Dark Modern",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "vs-kubernetes": {
+        "vscode-kubernetes.minikube-path.mac": "/Users/yuriiholiuk/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+        "vscode-kubernetes.helm-path.mac": "/Users/yuriiholiuk/.vs-kubernetes/tools/helm/darwin-amd64/helm"
+    },
+    "editor.semanticTokenColorCustomizations": null,
+    "editor.fontSize": 14,
+    "explorer.compactFolders": false,
+    "explorer.autoReveal": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "yaml": true
+    },
+    "github.copilot.editor.enableAutoCompletions": true,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "githubPullRequests.pullBranch": "never",
+    "settingsSync.ignoredExtensions": [
+        "ms-vscode.vscode-speech",
+        "github.copilot",
+        "github.copilot-chat"
+    ],
+    "files.autoSave": "afterDelay",
+    "editor.accessibilitySupport": "off",
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.visualline": "",
+    "git.autofetch": true,
+    "codemetrics.basics.EnabledForHTML": false,
+    "codemetrics.nodeconfiguration.JsxElement": 0,
+    "codemetrics.nodeconfiguration.JsxSelfClosingElement": 0,
+    "codemetrics.nodeconfiguration.LabeledStatement": 0,
+    "diffEditor.useInlineViewWhenSpaceIsLimited": false,
+    "typescript.preferences.importModuleSpecifier": "non-relative"
+}

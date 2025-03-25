@@ -32,6 +32,9 @@
     # ".config/ghostty".source = ~/dotfiles/ghostty;
     # ".config/aerospace".source = ~/dotfiles/aerospace;
     # ".config/sketchybar".source = ~/dotfiles/sketchybar;
+    ".cursor/extensions.json".source = ../cursor/extensions.json;
+    "Library/Application Support/Cursor/User/settings.json".source = ../cursor/settings.json;
+    "Library/Application Support/Cursor/User/keybindings.json".source = ../cursor/keybindings.json;
     # ".config/nushell".source = ~/dotfiles/nushell;
   };
 
