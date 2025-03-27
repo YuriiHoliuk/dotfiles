@@ -1,0 +1,13 @@
+# /Users/yuriiholiuk/.config/tmuxinator/website.yml
+
+name: website
+root: ~/mate/website
+
+windows:
+  - website:
+      layout: tiled
+      panes:
+        - make light
+        - make run-frontend
+        - null
+        - null

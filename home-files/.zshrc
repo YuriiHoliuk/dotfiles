@@ -22,8 +22,6 @@ if [[ -f "/opt/homebrew/bin/brew" ]] then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-eval "$(fnm env --use-on-cd --shell zsh)"
-
 export EDITOR="nvim"
 
 # Set the directory we want to store zinit and plugins
@@ -56,8 +54,11 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::docker
 
+# Add Docker completions
+fpath=(/Users/yuriiholiuk/.docker/completions $fpath)
 # Load completions
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+compinit
 
 zinit cdreplay -q
 
@@ -147,3 +148,4 @@ source ~/.zsh_aliases
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"

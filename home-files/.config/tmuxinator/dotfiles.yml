@@ -1,0 +1,11 @@
+# /Users/yuriiholiuk/.config/tmuxinator/.files.yml
+
+name: dotfiles
+root: "~"
+
+windows:
+  - .dotfiles:
+      layout: even-vertical
+      panes:
+        - null
+        - cd ~/dotfiles 

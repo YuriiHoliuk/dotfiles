@@ -38,6 +38,7 @@
           mkalias
           argocd
           aws-iam-authenticator
+          awscli2
           bat
           curl
           fzf
@@ -161,33 +162,25 @@
           };
           screensaver = {
             askForPasswordDelay = 10;
+            askForPassword = true;
           };
           trackpad = {
             Clicking = true;  # Enable tap to click
             TrackpadRightClick = true;  # Enable two finger right click
           };
           NSGlobalDomain = {
-            ApplePressAndHoldEnabled = true;
+            ApplePressAndHoldEnabled = false;
             KeyRepeat = 2;
             InitialKeyRepeat = 10;
-            "com.apple.trackpad.scaling" = 3.0;  # Maximum tracking speed
+            "com.apple.trackpad.scaling" = 2.5;  # Maximum tracking speed
             "com.apple.swipescrolldirection" = true;  # Enable natural scrolling
           };
           loginwindow = {
             GuestEnabled = false;  # Disable guest account
             SHOWFULLNAME = false;  # Show username instead of full name
+            LoginwindowText = "What's up, Yuriii!🌿🎶";
           };
         };
-
-        # Power management and screensaver settings
-        system.activationScripts.postActivation.text = ''
-          echo "Setting up power management..."
-          /usr/bin/pmset -b displaysleep 5 disksleep 10 sleep 10    # Battery settings
-          /usr/bin/pmset -c displaysleep 30 disksleep 10 sleep 60   # Power adapter settings
-
-          echo "Setting up screensaver..."
-          defaults -currentHost write com.apple.screensaver idleTime 300
-        '';
       };
     in
     {
