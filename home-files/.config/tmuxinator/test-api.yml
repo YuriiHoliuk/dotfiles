@@ -1,0 +1,11 @@
+# /Users/yuriiholiuk/.config/tmuxinator/website-e2e.yml
+
+name: test-api
+root: ~/mate/website
+
+windows:
+  - test-api:
+      layout: even-horizontal
+      panes:
+        - make test-api
+        - null

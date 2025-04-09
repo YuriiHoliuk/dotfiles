@@ -1,10 +1,12 @@
 {
     "search.exclude": {
-        "**/node_modules": true,
-        "**/bower_components": true,
         "**/*.code-search": true,
         "**/*.generated.ts": true,
-        "**/generated.ts": true
+        "**/bower_components": true,
+        "**/generated.ts": true,
+        "**/node_modules": true,
+        "frontend/.next": true,
+        "frontend/allure-results": true
     },
     "editor.tabSize": 2,
     "materialTheme.accent": "Graphite",
@@ -190,5 +192,22 @@
     "codemetrics.nodeconfiguration.JsxSelfClosingElement": 0,
     "codemetrics.nodeconfiguration.LabeledStatement": 0,
     "diffEditor.useInlineViewWhenSpaceIsLimited": false,
-    "typescript.preferences.importModuleSpecifier": "non-relative"
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "cursor.cpp.disabledLanguages": [
+        "markdown",
+        "plaintext"
+    ],
+    "multiCommand.commands": [
+        {
+            "command": "multiCommand.formatAndSave",
+            "sequence": [
+                "editor.action.organizeImports",
+                "workbench.action.files.save",
+                "workbench.action.files.save"
+            ]
+        }
+    ],
+    "typescript.preferences.preferTypeOnlyAutoImports": true,
+    "typescript.updateImportsOnPaste.enabled": true,
+    "javascript.updateImportsOnPaste.enabled": true
 }

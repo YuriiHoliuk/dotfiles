@@ -17,7 +17,9 @@ It will setup git, install Nix, clone this repo, install and configure everythin
 - [Download](https://arc.net/download) and install Arc browser. *Login with personal default account.*
 - [Download](https://app.grammarly.com/apps) and install Grammarly. Login in web and go via the link to download Desktop app.
 - [ ] Think about passwords backup or Arc replacements.
-- [ ] Idea. Set up terminal password manager. Add work credential to it. Create script to set up website env, aws cli, kubectl automatically.
+- [ ] Idea. Set up terminal password manager. Add work credential to it. Create script to set up website env, aws cli, kubectl automatically. There is also 1Password cli.
+- [ ] Automate browser extensions or at least create a list.
+- [ ] Add zsh history to the repo. Or infinite history in the DB.
 
 
 ### Setup for Mate academy work

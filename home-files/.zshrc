@@ -13,9 +13,6 @@ fi
 mkdir -p ~/.cache/zinit/completions
 
 export PATH="/Users/yuriiholiuk/.local/bin:$PATH"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 
 if [[ -f "/opt/homebrew/bin/brew" ]] then
   # If you're using macOS, you'll want this enabled
@@ -148,4 +145,5 @@ source ~/.zsh_aliases
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(fnm env --use-on-cd --shell zsh)"
+# Make it silent to prevent p10k warnings.
+eval "$(fnm env --use-on-cd --shell zsh)" > /dev/null 2>&1

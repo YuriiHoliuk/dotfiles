@@ -66,6 +66,7 @@
           mas
           fnm
           stow
+          ffmpeg
         ];
 
         homebrew = {
@@ -94,6 +95,7 @@
             "slack"
             "signal"
             "whatsapp"
+            "zen-browser"
           ];
           masApps = {
             # "Slack" = 803453959;

@@ -95,5 +95,28 @@
   {
     "key": "shift+alt+c",
     "command": "workbench.files.action.collapseExplorerFolders"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "multiCommand.formatAndSave",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+alt+r",
+    "command": "references-view.findReferences",
+    "when": "editorHasReferenceProvider"
+  },
+  {
+    "key": "shift+alt+f12",
+    "command": "-references-view.findReferences",
+    "when": "editorHasReferenceProvider"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
+  {
+    "key": "cmd+l",
+    "command": "composerMode.chat"
   }
 ]

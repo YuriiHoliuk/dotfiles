@@ -46,8 +46,9 @@ alias serve="browser-sync start -s -f . --no-notify --host $LOCAL_IP --port 9000
 alias cc="~/mate/website/cli-tools/createComponent/createComponent.js"
 alias ports='netstat -tulanp'
 alias e2e="tmuxinator start website-e2e"
-alias website="tmuxinator start website"
-alias dotfiles="tmuxinator start dotfiles"
+alias web="tmuxinator start website"
+alias dot="tmuxinator start dotfiles"
+alias test-api="tmuxinator start test-api"
 
 # tmux
 alias d="tmux detach"
