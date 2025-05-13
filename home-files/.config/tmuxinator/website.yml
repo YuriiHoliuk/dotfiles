@@ -11,3 +11,14 @@ windows:
         - make run-frontend
         - null
         - null
+  - db:
+      layout: even-horizontal
+      panes:
+        - null
+        - null
+
+  - website-2:
+      layout: even-horizontal
+      panes:
+        - cd ../website-2
+        - cd ../website-2

@@ -2,14 +2,15 @@
     "search.exclude": {
         "**/*.code-search": true,
         "**/*.generated.ts": true,
+        "**/allure-results": true,
         "**/bower_components": true,
         "**/generated.ts": true,
         "**/node_modules": true,
         "frontend/.next": true,
-        "frontend/allure-results": true
+        "frontend/allure-results": true,
+        "frontend/build-cache": true
     },
     "editor.tabSize": 2,
-    "materialTheme.accent": "Graphite",
     "workbench.colorCustomizations": {
         "activityBarBadge.background": "#616161",
         "list.activeSelectionForeground": "#616161",
@@ -36,15 +37,10 @@
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
-    "materialTheme.autoApplyIcons": true,
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    "bracketPairColorizer.showBracketsInGutter": true,
     "workbench.sideBar.location": "left",
-    "jshint.options": {
-        "esversion": 6
-    },
     "breadcrumbs.enabled": true,
     "editor.fontFamily": "\"MesloLGS Nerd Font Mono\"",
     "editor.fontLigatures": true,
@@ -79,7 +75,6 @@
         ]
     },
     "files.eol": "\n",
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
@@ -87,10 +82,8 @@
         "javascript": "javascriptreact",
         "vue-html": "html"
     },
-    "sync.gist": "",
     "terminal.integrated.fontFamily": "monospace",
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "terminal.integrated.shell.osx": "/bin/zsh",
     "editor.tabCompletion": "on",
     "workbench.editor.highlightModifiedTabs": true,
     "editor.renderWhitespace": "all",
@@ -99,15 +92,11 @@
     "workbench.editor.enablePreview": true,
     "workbench.editor.closeEmptyGroups": true,
     "workbench.editor.enablePreviewFromQuickOpen": true,
-    "terminal.integrated.rendererType": "dom",
-    "vscode-postgres.prettyPrintJSONfields": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit"
     },
-    "makefileCommandRunner.filePathEnv": "",
     "workbench.iconTheme": "material-icon-theme",
-    "makefileCommandRunner.makefilePath": "./Makefile",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "pgsql.connections": [
@@ -126,7 +115,6 @@
     "typescript.preferences.quoteStyle": "single",
     "editor.minimap.enabled": false,
     "html.format.enable": false,
-    "todo-tree.tree.showScanModeButton": false,
     "todo-tree.general.tags": [
         "BUG",
         "HACK",
@@ -137,8 +125,6 @@
         "[x]"
     ],
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-    "linthtml.configFile": ".linthtmlrc.json",
-    "linthtml.enable": false,
     "vim.easymotion": true,
     "vim.enableNeovim": true,
     "vim.foldfix": true,
@@ -153,11 +139,6 @@
     },
     "workbench.colorTheme": "Default Dark Modern",
     "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "vs-kubernetes": {
-        "vscode-kubernetes.minikube-path.mac": "/Users/yuriiholiuk/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
-        "vscode-kubernetes.helm-path.mac": "/Users/yuriiholiuk/.vs-kubernetes/tools/helm/darwin-amd64/helm"
-    },
     "editor.semanticTokenColorCustomizations": null,
     "editor.fontSize": 14,
     "explorer.compactFolders": false,
@@ -194,7 +175,6 @@
     "diffEditor.useInlineViewWhenSpaceIsLimited": false,
     "typescript.preferences.importModuleSpecifier": "non-relative",
     "cursor.cpp.disabledLanguages": [
-        "markdown",
         "plaintext"
     ],
     "multiCommand.commands": [
@@ -209,5 +189,26 @@
     ],
     "typescript.preferences.preferTypeOnlyAutoImports": true,
     "typescript.updateImportsOnPaste.enabled": true,
-    "javascript.updateImportsOnPaste.enabled": true
+    "javascript.updateImportsOnPaste.enabled": true,
+    "roo-cline.allowedCommands": [
+        "npm test",
+        "npm install",
+        "tsc",
+        "git log",
+        "git diff",
+        "git show",
+        "git commit",
+        "git status",
+        "gh",
+        "npm run",
+        "make",
+        "fresh",
+        "git",
+        "ls",
+        "cd",
+        "pwd"
+    ],
+    "cSpell.userWords": [
+        "uuidv"
+    ]
 }

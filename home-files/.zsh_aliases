@@ -3,7 +3,6 @@ alias c='clear'
 alias ls="exa -F"
 alias ll="exa -alhF"
 alias tree="exa --tree"
-alias z="cd"
 
 alias ..='cd ../'
 alias ...='cd ../../'
@@ -49,6 +48,7 @@ alias e2e="tmuxinator start website-e2e"
 alias web="tmuxinator start website"
 alias dot="tmuxinator start dotfiles"
 alias test-api="tmuxinator start test-api"
+alias os="~/mate/website/cli-tools/opensearch-cli/dist/src/index.js"
 
 # tmux
 alias d="tmux detach"
@@ -83,9 +83,16 @@ alias zrc="nvim ~/dotfiles/zsh/.zshrc"
 alias zsrc="source ~/.zshrc"
 alias zal="nvim ~/dotfiles/zsh/.zsh_aliases"
 
+# Vim
+alias vi="nvim"
+alias vim="nvim"
+alias vv="nvim ."
+
 # NixOS aliases
 alias ne="nvim ~/dotfiles/nix/flake.nix"
 alias neh="nvim ~/dotfiles/nix/home.nix"
 alias ni="darwin-rebuild switch --flake ~/dotfiles/nix"
 
-
+# Task Master aliases added on 4/14/2025
+alias tm='task-master'
+alias taskmaster='task-master'

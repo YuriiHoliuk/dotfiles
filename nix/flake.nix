@@ -67,6 +67,7 @@
           fnm
           stow
           ffmpeg
+          lazygit
         ];
 
         homebrew = {
@@ -77,8 +78,11 @@
             "helm"
             "kubernetes-cli"
             "powerlevel10k"
+            "tree-sitter"
           ];
           casks = [
+            "orbstack"
+            "ghostty"
             "ngrok"
             "raycast"
             "wezterm"
@@ -96,6 +100,7 @@
             "signal"
             "whatsapp"
             "zen-browser"
+            "transmission"
           ];
           masApps = {
             # "Slack" = 803453959;

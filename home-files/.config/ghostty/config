@@ -1,0 +1,43 @@
+font-family            = "MesloLGS Nerd Font Mono"
+font-size              = 19
+
+macos-option-as-alt    = true
+macos-titlebar-style   = hidden
+window-decoration      = auto
+window-padding-x = 8
+window-padding-y = 8
+window-padding-balance = true
+window-padding-color   = background
+
+background-opacity     = 0.85
+# background-opacity     = 1
+background-blur        = 10
+
+foreground             = #CBE0F0
+background             = #011423
+cursor-color           = #47FF9C
+cursor-text            = #011423
+selection-background   = #033259
+selection-foreground   = #CBE0F0
+
+palette = 0=#214969
+palette = 1=#E52E2E
+palette = 2=#44FFB1
+palette = 3=#FFE073
+palette = 4=#0FC5ED
+palette = 5=#A277FF
+palette = 6=#24EAF7
+palette = 7=#24EAF7
+palette = 8=#214969
+palette = 9=#E52E2E
+palette = 10=#44FFB1
+palette = 11=#FFE073
+palette = 12=#A277FF
+palette = 13=#A277FF
+palette = 14=#24EAF7
+palette = 15=#24EAF7
+
+# ---  matrix “rain” shader  ---
+# custom-shader           = ./shaders/galaxy.glsl
+
+custom-shader-animation = false

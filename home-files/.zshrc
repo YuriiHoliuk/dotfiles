@@ -144,6 +144,6 @@ source ~/.zsh_aliases
 
 # Shell integrations
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init --cmd z zsh)"
 # Make it silent to prevent p10k warnings.
 eval "$(fnm env --use-on-cd --shell zsh)" > /dev/null 2>&1

@@ -528,3 +528,3114 @@
 
 # 2025-04-09 10:44:03.525863
 +select slug, mode from course_topics where mode = 'INTRODUCTION';
+
+# 2025-04-10 19:49:29.444005
++select config from test_tasks tt where id in (402, 557);
+
+# 2025-04-10 19:50:02.633726
++select config, test_task_id from course_topic_tasks ctt where test_task_id in (402, 557);
+
+# 2025-04-10 19:50:18.063017
++select config, test_task_id, course_topic_id from course_topic_tasks ctt where test_task_id in (402, 557);
+
+# 2025-04-10 19:50:52.625198
++select ct.slug, config, test_task_id, course_topic_id from course_topic_tasks ctt join course_topics ct ON ct.id = ctt.course_topic_id where test_task_id in (402, 557);
+
+# 2025-04-10 19:51:12.886594
++select ct.slug, ctt.config, ct.config, test_task_id, course_topic_id from course_topic_tasks ctt join course_topics ct ON ct.id = ctt.course_topic_id where test_task_id in (402, 557);
+
+# 2025-04-10 19:53:51.701928
++select config, test_task_id, course_topic_id from course_topic_tasks ctt where test_task_id in (402, 557);
+
+# 2025-04-10 19:54:09.199335
++select config from test_tasks tt where id in (402, 557);
+
+# 2025-04-10 19:54:12.766593
++select ct.slug, ctt.config, ct.config, test_task_id, course_topic_id from course_topic_tasks ctt join course_topics ct ON ct.id = ctt.course_topic_id where test_task_id in (402, 557);
+
+# 2025-04-10 20:04:05.740802
++select * from tasks_reviews tr where test_task_attempt_id = 9764730;
+
+# 2025-04-10 20:04:19.671125
++select * from tasks_reviews tr where test_task_attempt_id = 9764730 order by created_at asc;
+
+# 2025-04-10 20:08:10.296736
++select ct.slug topic_slug, ctt.config topic_task_config, ct.config topic_config, tt.slug task_slug, tt.config task_config from course_topic_tasks ctt join test_tasks tt ON tt.id = ctt.test_task_id join course_topics ct ON ct.id = ctt.course_topic_id where test_task_id in (557);
+
+# 2025-04-10 20:09:06.119937
++select ct.slug topic_slug, ctt.config topic_task_config, ct.config topic_config, tt.slug task_slug, tt.config task_config from course_topic_tasks ctt join test_tasks tt ON tt.id = ctt.test_task_id join course_topics ct ON ct.id = ctt.course_topic_id where test_task_id in (557) and ct.slug = 'react-portfolio';
+
+# 2025-04-10 20:09:09.276021
++select ct.slug topic_slug, ctt.config topic_task_config, ct.config topic_config, tt.slug task_slug, tt.config task_config from course_topic_tasks ctt join test_tasks tt ON tt.id = ctt.test_task_id join course_topics ct ON ct.id = ctt.course_topic_id where test_task_id in (557);
+
+# 2025-04-10 20:09:40.308382
++select ct.slug topic_slug, ctt.config topic_task_config, ct.config topic_config, tt.slug task_slug, tt.config task_config from course_topic_tasks ctt join test_tasks tt ON tt.id = ctt.test_task_id join course_topics ct ON ct.id = ctt.course_topic_id where test_task_id in (557) and ct.slug = 'react-portfolio';
+
+# 2025-04-10 20:09:44.136004
++\x
+
+# 2025-04-10 20:09:45.336152
++select ct.slug topic_slug, ctt.config topic_task_config, ct.config topic_config, tt.slug task_slug, tt.config task_config from course_topic_tasks ctt join test_tasks tt ON tt.id = ctt.test_task_id join course_topics ct ON ct.id = ctt.course_topic_id where test_task_id in (557) and ct.slug = 'react-portfolio';
+
+# 2025-04-10 20:10:28.309781
++select * from tasks_reviews tr where test_task_attempt_id = 9764730 order by created_at asc;
+
+# 2025-04-10 20:10:43.375280
++select status, created_at from tasks_reviews tr where test_task_attempt_id = 9764730 order by created_at asc;
+
+# 2025-04-10 20:10:58.303846
++\x
+
+# 2025-04-10 20:11:00.040112
++select status, created_at from tasks_reviews tr where test_task_attempt_id = 9764730 order by created_at asc;
+
+# 2025-04-10 20:11:14.719003
++select * from tasks_reviews tr where test_task_attempt_id = 9764730 order by created_at asc;
+
+# 2025-04-10 20:11:22.965459
++select status, created_at, source from tasks_reviews tr where test_task_attempt_id = 9764730 order by created_at asc;
+
+# 2025-04-11 14:30:53.034198
++\d users
+
+# 2025-04-11 14:31:17.451348
++select github_url from users limit 1;
+
+# 2025-04-11 14:31:38.927119
++select github_url from users where github_url = 'https://github.com/YuriiHoliuk';
+
+# 2025-04-11 14:31:54.533779
++select id, email, github_url from users where github_url = 'https://github.com/YuriiHoliuk';
+
+# 2025-04-11 14:34:57.163400
++select github_url from users where email = 'bionicuss@gmail.com';
+
+# 2025-04-11 14:35:03.187986
++select id from users where email = 'bionicuss@gmail.com';
+
+# 2025-04-11 14:35:19.948544
++select * from user_groups ug where user_id = 12624;
+
+# 2025-04-11 14:35:34.032238
++select name from students_groups sg where id = 53;
+
+# 2025-04-11 17:26:45.463197
++select * from tech_check_event_skeletons tces where id = 6770;
+
+# 2025-04-11 17:27:14.779026
++select * from event_skeletons es where id = 6770;
+
+# 2025-04-11 17:29:58.220300
++select * from events e where id = 212371;
+
+# 2025-04-11 18:01:01.826127
++select id from test_tasks tt where slug = 'react-phone-catalog';
+
+# 2025-04-11 18:01:36.943309
++select * from tasks_reviews tr where test_task_id = 557 and created_at < '2025-04-03';
+
+# 2025-04-11 18:02:25.411598
++select * from tasks_reviews tr where test_task_id = 557 and created_at < '2025-04-03' and created_at > '2025-03-18';
+
+# 2025-04-11 18:03:11.763499
++select id, status, user_id from tasks_reviews tr where test_task_id = 557 and created_at < '2025-04-03' and created_at > '2025-03-18' order by user_id, created_at asc;
+
+# 2025-04-11 18:03:20.387594
++select id, status, user_id, created_at from tasks_reviews tr where test_task_id = 557 and created_at < '2025-04-03' and created_at > '2025-03-18' order by user_id, created_at asc;
+
+# 2025-04-11 18:03:39.939064
++select id, status, user_id, created_at from tasks_reviews tr where test_task_id = 557 and created_at < '2025-04-03' and created_at > '2025-03-01' order by user_id, created_at asc;
+
+# 2025-04-11 18:05:43.116896
++SELECT *
++FROM test_task_attempts tta
++WHERE tta.test_task_id = 557
++  AND NOT EXISTS (
++    SELECT 1
++    FROM task_reviews tr
++    WHERE tr.test_task_attempt_id = tta.id
++  );
+
+# 2025-04-11 18:06:02.396490
++SELECT *
++FROM test_task_attempts tta
++WHERE tta.test_task_id = 557
++  AND NOT EXISTS (
++    SELECT 1
++    FROM tasks_reviews tr
++    WHERE tr.test_task_attempt_id = tta.id
++  );
+
+# 2025-04-15 17:41:06.683379
++select p.id p_id, c.id c_id, p.slug p_slug, c.slug c_slug from professions p join courses c ON c.profession_id = p.id where c.type = 'POSTPAID' and c.slug != p.slug;
+
+# 2025-04-16 11:01:33.561498
++select id from course_modules cm where "position" is not null and "position" < 0;
+
+# 2025-04-16 22:24:15.447605
++SELECT name, deadline FROM application_statuses WHERE name = 'SIGNING_AGREEMENT';
+
+# 2025-04-17 12:18:37.727930
++SELECT name, deadline FROM application_statuses WHERE nam
++ e = 'SIGNING_AGREEMENT';
++
+
+# 2025-04-17 12:18:43.411243
++SELECT name, deadline FROM application_statuses WHERE name = 'SIGNING_AGREEMENT';
++
+
+# 2025-04-17 12:19:18.774178
++update application_statuses set deadline = 3 where name = 'SIGNING_AGREEMENT';
+
+# 2025-04-17 15:17:32.950840
++select * from features f where name = 'refactoring_user_roles';
+
+# 2025-04-18 11:28:30.946558
++select * from granted_permissions gp where permission = 'HIDDEN_COURSE::VIEW';
+
+# 2025-04-18 11:28:50.983171
++select * from granted_permissions gp where permission = 'LEAD_QUIZ_DATA::READ';
+
+# 2025-04-18 11:29:23.378322
++select * from granted_permissions gp where permission = 'LEAD_QUIZ_DATA::WRITE';
+
+# 2025-04-18 11:34:50.381035
++select * from granted_permissions gp where permission = 'LEAD_QUIZ_DATA::READ';
+
+# 2025-04-18 11:35:06.733964
++select email from users where id = 221745;
+
+# 2025-04-18 11:35:11.363496
++select * from granted_permissions gp where permission = 'LEAD_QUIZ_DATA::READ';
+
+# 2025-04-18 11:35:18.279664
++select email from users where id = 789538;
+
+# 2025-04-18 13:49:01.568084
++select * from granted_permissions gp where permission = 'STUDENTS_GROUPS_ACCESS';
+
+# 2025-04-18 13:49:36.093030
++select role_id, course_id, user_id from granted_permissions gp where permission = 'STUDENTS_GROUPS_ACCESS';
+
+# 2025-04-18 13:49:37.201085
++select * from granted_permissions gp where permission = 'STUDENTS_GROUPS_ACCESS';
+
+# 2025-04-18 13:50:00.174935
++select role_id, course_id, user_id, subscription_grant_id, domain_id, english_level_id from granted_permissions gp where permission = 'STUDENTS_GROUPS_ACCESS';
+
+# 2025-04-18 13:50:01.982366
++select * from granted_permissions gp where permission = 'STUDENTS_GROUPS_ACCESS';
+
+# 2025-04-18 13:50:58.540924
++select role_id, ur.name, course_id, user_id, subscription_grant_id, domain_id, english_level_id, resources from granted_permissions gp left join user_roles ur ON ur.id = gp.role_id where permission = 'STUDENTS_GROUPS_ACCESS';
+
+# 2025-04-18 13:51:04.872805
++\d user_roles
+
+# 2025-04-18 13:51:11.335419
++select role_id, ur.role, course_id, user_id, subscription_grant_id, domain_id, english_level_id, resources from granted_permissions gp left join user_roles ur ON ur.id = gp.role_id where permission = 'STUDENTS_GROUPS_ACCESS';
+
+# 2025-04-18 13:51:40.628572
++select role_id, ur.role, course_id, user_id, subscription_grant_id, domain_id, english_level_id, resources from granted_permissions gp left join user_roles ur ON ur.id = gp.role_id where permission = 'STUDENTS_GROUPS::MANAGE';
+
+# 2025-04-18 14:15:25.365807
++select role_id, ur.role, course_id, user_id, subscription_grant_id, domain_id, english_level_id, resources from granted_permissions gp left join user_roles ur ON ur.id = gp.role_id where permission = 'STUDENTS_GROUPS_ACCESS';
+
+# 2025-04-18 16:18:57.904030
++select * from course_users where user_id = (select id from users where email = 'demo_test_account@mate.com');
+
+# 2025-04-18 16:19:05.599943
++\x
+
+# 2025-04-18 16:19:06.950442
++select * from course_users where user_id = (select id from users where email = 'demo_test_account@mate.com');
+
+# 2025-04-22 11:56:50.759662
++select id from courses where slug = 'frontend';
+
+# 2025-04-22 11:57:22.388114
++select c.* from course_modules cm join courses c ON c.id = cm.child_course_id where cm.parent_course_id = 3;
+
+# 2025-04-22 11:57:50.910141
++\x
+
+# 2025-04-22 11:58:03.851145
++select c.* from course_modules cm join courses c ON c.id = cm.child_course_id where cm.parent_course_id = 3 where c.slug like '%test%';
+
+# 2025-04-22 11:58:08.852446
++select c.* from course_modules cm join courses c ON c.id = cm.child_course_id where cm.parent_course_id = 3 and c.slug like '%test%';
+
+# 2025-04-22 13:20:04.123865
++select * from translates t where code = 'custom_correct_answers_count_to_complete_enabled';
+
+# 2025-04-22 13:20:24.353724
++select * from translates t where code like '%custom_correct_answers_count_to_complete_enabled';
+
+# 2025-04-22 13:20:53.844327
++select * from translates t where code like '%custom_correct_answers_count_to_complete_enabled' or code like '%correct_answers_count_to_complete';
+
+# 2025-04-22 13:22:41.079308
++BEGIN;
++
++UPDATE translates
++SET value = 'Is custom correct answers count enabled?'
++WHERE code = 'config_step_custom_correct_answers_count_to_complete_enabled';
++
++UPDATE translates
++SET value = 'Custom correct answers count to complete the quiz'
++WHERE code = 'config_step_correct_answers_count_to_complete';
+
+# 2025-04-22 13:22:57.254677
++commit;
+
+# 2025-04-22 13:23:31.767527
++BEGIN;
++
++UPDATE translates
++SET value = 'Is custom correct answers count enabled?'
++WHERE code = 'config_step_custom_correct_answers_count_to_complete_enabled';
++
++UPDATE translates
++SET value = 'Custom correct answers count to complete the quiz'
++WHERE code = 'config_step_correct_answers_count_to_complete';
+
+# 2025-04-22 13:23:35.559740
++commit;
+
+# 2025-04-23 08:42:54.710628
++select status from courses where slug = 'test-drive';
+
+# 2025-04-23 08:45:11.102363
++select id from courses where slug = 'frontend';
+
+# 2025-04-23 08:45:28.115581
++select * from course_modules cm where parent_course_id = 4;
+
+# 2025-04-23 08:46:12.215523
++select * from course_modules cm where parent_course_id = 4 order by "position" asc;
+
+# 2025-04-23 08:46:40.397926
++select status, slug from courses where id = 81;
+
+# 2025-04-23 08:46:51.062476
++select status, slug from courses where id = 101;
+
+# 2025-04-23 08:47:40.568586
++update courses set status = 'INACTIVE' where id = 81;
+
+# 2025-04-23 11:20:49.115984
++select * from granted_permissions gp where permission = 'DAILY_TASKS::READ';
+
+# 2025-04-23 11:21:23.323501
++select * from granted_permissions gp where permission = 'study:AccessDailyTask';
+
+# 2025-04-23 11:21:48.833634
++delete from granted_permissions where permission = 'study:AccessDailyTask';
+
+# 2025-04-23 11:49:52.113289
++select % from events where id = 220635;
+
+# 2025-04-23 11:49:58.947768
++select * from events where id = 220635;
+
+# 2025-04-23 11:52:07.319991
++select * from events where id = 219269;
+
+# 2025-04-24 11:53:45.177544
++select * from granted_permissions gp where role_id is not null;
+
+# 2025-04-24 14:25:03.133228
++delete from granted_permissions where permission = 'study:AccessTeamProject';
+
+# 2025-04-24 15:09:58.402491
++delete from granted_permissions where permission = 'study:AccessModule';
+
+# 2025-04-24 15:28:24.091119
++select * from courses where slug = 'general-consultation';
+
+# 2025-04-24 15:28:30.469635
++\x
+
+# 2025-04-24 15:28:31.210261
++select * from courses where slug = 'general-consultation';
+
+# 2025-04-24 15:39:51.384529
++select * from course_modules cm where parent_course_id = 369;
+
+# 2025-04-24 15:39:55.678379
++select * from course_modules cm where child_course_id = 369;
+
+# 2025-04-24 15:48:45.703593
++delete from granted_permissions where permission = 'study:ViewProfession';
+
+# 2025-04-24 16:29:52.507779
++WITH solved_tasks AS (
++  SELECT
++    sg.course_id,
++    EXTRACT(EPOCH FROM (tta.solved_at - tta.created_at)) AS time_delta_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Must belong to a user group
++    AND ug.id IS NOT NULL
++    -- User group must be associated with a course
++    AND sg.course_id IS NOT NULL
++    -- Time delta must be positive
++    AND tta.solved_at > tta.created_at
++)
++SELECT
++  c.id AS course_id,
++  c.slug AS course_slug,
++  c.name_full_code AS course_name,
++  COUNT(*) AS attempts_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds) % 3600) / 60)::INTEGER, ' minutes, ',
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds) % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM solved_tasks st
++JOIN courses c ON st.course_id = c.id
++GROUP BY c.id, c.slug, c.name_full_code
++ORDER BY median_time_delta_seconds DESC;
++
+
+# 2025-04-24 16:30:29.458967
++WITH solved_tasks AS (
++  SELECT
++    sg.course_id,
++    EXTRACT(EPOCH FROM (tta.solved_at - tta.created_at)) AS time_delta_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Must belong to a user group
++    AND ug.id IS NOT NULL
++    -- User group must be associated with a course
++    AND sg.course_id IS NOT NULL
++    -- Time delta must be positive
++    AND tta.solved_at > tta.created_at
++)
++SELECT
++  c.id AS course_id,
++  c.slug AS course_slug,
++  c.name_full_code AS course_name,
++  COUNT(*) AS attempts_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM solved_tasks st
++JOIN courses c ON st.course_id = c.id
++GROUP BY c.id, c.slug, c.name_full_code
++ORDER BY median_time_delta_seconds DESC;
++
+
+# 2025-04-24 16:31:08.066021
++WITH solved_tasks AS (
++  SELECT
++    sg.course_id,
++    EXTRACT(EPOCH FROM (tta.solved_at - tta.created_at)) AS time_delta_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Must belong to a user group
++    AND ug.id IS NOT NULL
++    -- User group must be associated with a course
++    AND sg.course_id IS NOT NULL
++    -- Time delta must be positive
++    AND tta.solved_at > tta.created_at
++)
++SELECT
++  c.id AS course_id,
++  c.slug AS course_slug,
++  COUNT(*) AS attempts_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM solved_tasks st
++JOIN courses c ON st.course_id = c.id
++GROUP BY c.id, c.slug
++ORDER BY median_time_delta_seconds DESC;
++
+
+# 2025-04-24 16:36:15.172148
++\d test_task_attempts
+
+# 2025-04-24 16:36:18.336230
++\x
+
+# 2025-04-24 16:36:19.073880
++\d test_task_attempts
+
+# 2025-04-24 16:39:19.475079
++\copy (WITH solved_tasks AS (
++  SELECT
++    sg.course_id,
++    EXTRACT(EPOCH FROM (tta.solved_at - tta.created_at)) AS time_delta_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Must belong to a user group
++    AND ug.id IS NOT NULL
++    -- User group must be associated with a course
++    AND sg.course_id IS NOT NULL
++    -- Time delta must be positive
++    AND tta.solved_at > tta.created_at
++)
++SELECT
++  c.id AS course_id,
++  c.slug AS course_slug,
++  COUNT(*) AS attempts_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY st.time_delta_seconds))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM solved_tasks st
++JOIN courses c ON st.course_id = c.id
++GROUP BY c.id, c.slug
++ORDER BY median_time_delta_seconds DESC) to 'data.csv' with csv header
+
+# 2025-04-25 11:45:05.838970
++delete from granted_permissions where permission = 'study:AccessModule';
+
+# 2025-04-25 11:45:13.801400
++delete from granted_permissions where permission = 'study:StudyModule';
+
+# 2025-04-25 11:45:28.857087
++delete from granted_permissions where permission = 'study:AccessModule';
+
+# 2025-04-25 11:45:59.252127
++-- First, find time between consecutive solutions by the same student
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    sg.course_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '1 week'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Must belong to a user group
++    AND ug.id IS NOT NULL
++    -- User group must be associated with a course
++    AND sg.course_id IS NOT NULL
++),
++
++-- Calculate median time between solutions for each student
++student_medians AS (
++  SELECT
++    user_id,
++    course_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id, course_id
++)
++
++-- Calculate the median of student medians for each course
++SELECT
++  c.id AS course_id,
++  c.slug AS course_slug,
++  COUNT(DISTINCT sm.user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians sm
++JOIN courses c ON sm.course_id = c.id
++GROUP BY c.id, c.slug
++ORDER BY median_time_delta_seconds DESC;
++
+
+# 2025-04-25 11:46:15.770388
++-- First, find time between consecutive solutions by the same student
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    sg.course_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '1 week'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Must belong to a user group
++    AND ug.id IS NOT NULL
++    -- User group must be associated with a course
++    AND sg.course_id IS NOT NULL
++),
++
++-- Calculate median time between solutions for each student
++student_medians AS (
++  SELECT
++    user_id,
++    course_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id, course_id
++)
++
++-- Calculate the median of student medians for each course
++SELECT
++  c.id AS course_id,
++  c.slug AS course_slug,
++  COUNT(DISTINCT sm.user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians sm
++JOIN courses c ON sm.course_id = c.id
++GROUP BY c.id, c.slug
++ORDER BY median_time_delta_seconds DESC;
++
+
+# 2025-04-25 11:49:28.933865
++\copy () to 'median_between_tasks.csv' with csv header
+
+# 2025-04-25 11:49:44.868117
++\copy (-- First, find time between consecutive solutions by the same student
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    sg.course_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Must belong to a user group
++    AND ug.id IS NOT NULL
++    -- User group must be associated with a course
++    AND sg.course_id IS NOT NULL
++),
++
++-- Calculate median time between solutions for each student
++student_medians AS (
++  SELECT
++    user_id,
++    course_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id, course_id
++)
++
++-- Calculate the median of student medians for each course
++SELECT
++  c.id AS course_id,
++  c.slug AS course_slug,
++  COUNT(DISTINCT sm.user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians sm
++JOIN courses c ON sm.course_id = c.id
++GROUP BY c.id, c.slug
++ORDER BY median_time_delta_seconds DESC;
++) to 'median_between_tasks.csv' with csv header
+
+# 2025-04-25 11:49:49.807385
++\copy (-- First, find time between consecutive solutions by the same student
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    sg.course_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Must belong to a user group
++    AND ug.id IS NOT NULL
++    -- User group must be associated with a course
++    AND sg.course_id IS NOT NULL
++),
++
++-- Calculate median time between solutions for each student
++student_medians AS (
++  SELECT
++    user_id,
++    course_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id, course_id
++)
++
++-- Calculate the median of student medians for each course
++SELECT
++  c.id AS course_id,
++  c.slug AS course_slug,
++  COUNT(DISTINCT sm.user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians sm
++JOIN courses c ON sm.course_id = c.id
++GROUP BY c.id, c.slug
++ORDER BY median_time_delta_seconds DESC
++) to 'median_between_tasks.csv' with csv header
+
+# 2025-04-25 11:55:58.866865
++-- First, find time between consecutive solutions by the same student
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    sg.course_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Must belong to a user group
++    AND ug.id IS NOT NULL
++    -- User group must be associated with a course
++    AND sg.course_id IS NOT NULL
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++),
++
++-- Calculate median time between solutions for each student
++student_medians AS (
++  SELECT
++    user_id,
++    course_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id, course_id
++)
++
++-- Return data for course id 3
++SELECT
++  c.id AS course_id,
++  c.slug AS course_slug,
++  COUNT(DISTINCT sm.user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians sm
++JOIN courses c ON sm.course_id = c.id
++WHERE c.id = 3;
++
+
+# 2025-04-25 11:56:55.189032
++-- First, find time between consecutive solutions by the same student
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    sg.course_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Must belong to a user group
++    AND ug.id IS NOT NULL
++    -- User group must be associated with a course
++    AND sg.course_id IS NOT NULL
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++),
++
++-- Calculate median time between solutions for each student
++student_medians AS (
++  SELECT
++    user_id,
++    course_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id, course_id
++),
++
++-- Get basic course info
++course_info AS (
++  SELECT
++    id,
++    slug
++  FROM courses
++  WHERE id = 3
++)
++
++-- Return data for course id 3
++SELECT
++  c.id AS course_id,
++  c.slug AS course_slug,
++  COUNT(DISTINCT sm.user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians sm
++CROSS JOIN course_info c
++WHERE sm.course_id = 3;
++
+
+# 2025-04-25 11:58:06.293662
++-- First, find time between consecutive solutions by the same student for course id 3
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++),
++
++-- Calculate median time between solutions for each student
++student_medians AS (
++  SELECT
++    user_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id
++),
++
++-- Get course info
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE id = 3
++)
++
++-- Calculate aggregate metrics for course id 3
++SELECT
++  3 AS course_id,
++  (SELECT slug FROM course_info) AS course_slug,
++  COUNT(DISTINCT user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians;
++
+
+# 2025-04-25 12:01:16.944465
++-- First, find time between consecutive solutions by the same student for course id 3
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++),
++
++-- Calculate median time between solutions for each student
++student_medians AS (
++  SELECT
++    user_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id
++),
++
++-- Get course info
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE id = 3
++)
++
++-- Calculate aggregate metrics for course id 3
++SELECT
++  3 AS course_id,
++  (SELECT slug FROM course_info) AS course_slug,
++  COUNT(DISTINCT user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians;
++
+
+# 2025-04-25 12:01:35.806462
++-- First, find time between consecutive solutions by the same student for course id 3
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = 4
++),
++
++-- Calculate median time between solutions for each student
++student_medians AS (
++  SELECT
++    user_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id
++),
++
++-- Get course info
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE id = 4
++)
++
++-- Calculate aggregate metrics for course id 3
++SELECT
++  4 AS course_id,
++  (SELECT slug FROM course_info) AS course_slug,
++  COUNT(DISTINCT user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians;
++
+
+# 2025-04-25 13:06:15.785243
++-- Find time between consecutive solutions by the same student across all courses
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    sg.course_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++),
++
++-- Calculate median time between solutions for each student per course
++student_medians AS (
++  SELECT
++    user_id,
++    course_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id, course_id
++)
++
++-- Calculate aggregate metrics grouped by course
++SELECT
++  c.id AS course_id,
++  c.slug AS course_slug,
++  COUNT(DISTINCT sm.user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians sm
++JOIN courses c ON sm.course_id = c.id
++GROUP BY c.id, c.slug
++ORDER BY median_time_delta_seconds DESC;
++
+
+# 2025-04-25 13:16:10.335865
++-- First, find time between consecutive solutions by the same student for course id 3
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++),
++
++-- Calculate median time between solutions for each student
++student_medians AS (
++  SELECT
++    user_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id
++),
++
++-- Get course info
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE id = 3
++)
++
++-- Calculate aggregate metrics for course id 3
++SELECT
++  3 AS course_id,
++  (SELECT slug FROM course_info) AS course_slug,
++  COUNT(DISTINCT user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians;
++
+
+# 2025-04-25 13:17:52.582670
++SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++    limit 100;
+
+# 2025-04-25 13:18:43.999109
++SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++    AND u.id = 10736
++    ;
+
+# 2025-04-25 13:21:03.416366
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++    AND u.id = 10736
++)
++SELECT
++    user_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id;
+
+# 2025-04-25 13:21:50.181557
++SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++    AND u.id = 10736
++  ORDER BY time_between_solutions_seconds DESC;
+
+# 2025-04-25 13:22:22.317420
++SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++    AND u.id = 10736
++  ORDER BY time_between_solutions_seconds DESC
++  LIMIT 48;
+
+# 2025-04-25 13:22:35.975201
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++    AND u.id = 10736
++)
++SELECT
++    user_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id;
+
+# 2025-04-25 13:23:05.816491
++SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++    limit 100
++    ;
+
+# 2025-04-25 13:23:21.173169
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++    AND u.id in (10736, 2807)
++)
++SELECT
++    user_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id;
+
+# 2025-04-25 13:25:08.194283
++-- First, find time between consecutive solutions by the same student for course id 3
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++),
++
++-- Calculate median time between solutions for each student
++student_medians AS (
++  SELECT
++    user_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id
++),
++
++-- Get course info
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE id = 3
++)
++
++-- Calculate aggregate metrics for course id 3
++SELECT
++  3 AS course_id,
++  (SELECT slug FROM course_info) AS course_slug,
++  COUNT(DISTINCT user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians;
++
+
+# 2025-04-25 13:28:54.571780
++-- First, find time between consecutive solutions by the same student for multiple courses
++WITH
++
++-- Get course info for multiple courses
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE slug IN ('frontend', 'java', 'ui-ux')
++),
++
++consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    sg.course_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id, sg.course_id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for courses in the list
++    AND sg.course_id IN (SELECT id FROM course_info)
++),
++
++student_medians AS (
++  SELECT
++    user_id,
++    course_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id, course_id
++)
++
++SELECT
++  ci.id AS course_id,
++  ci.slug AS course_slug,
++  COUNT(DISTINCT sm.user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) AS median_time_delta_seconds,
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM course_info ci
++LEFT JOIN student_medians sm ON sm.course_id = ci.id
++GROUP BY ci.id, ci.slug;
++
+
+# 2025-04-25 13:29:07.179351
++-- First, find time between consecutive solutions by the same student for course id 3
++WITH consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = 3
++),
++
++-- Calculate median time between solutions for each student
++student_medians AS (
++  SELECT
++    user_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id
++),
++
++-- Get course info
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE id = 3
++)
++
++-- Calculate aggregate metrics for course id 3
++SELECT
++  3 AS course_id,
++  (SELECT slug FROM course_info) AS course_slug,
++  COUNT(DISTINCT user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians;
++
+
+# 2025-04-25 13:31:16.251103
++-- First, find time between consecutive solutions for multiple courses
++-- Create a temporary table to store results
++CREATE TEMPORARY TABLE IF NOT EXISTS course_completion_metrics (
++  course_id INTEGER,
++  course_slug TEXT,
++  students_count INTEGER,
++  median_time_delta_seconds NUMERIC,
++  median_time_formatted TEXT
++);
++
++-- Function to calculate metrics for a single course
++CREATE OR REPLACE FUNCTION calculate_course_metrics(course_slug_param TEXT)
++RETURNS VOID AS $$
++BEGIN
++  WITH
++  -- Get course info
++  course_info AS (
++    SELECT id, slug
++    FROM courses
++    WHERE slug = course_slug_param
++  ),
++
++  consecutive_solutions AS (
++    SELECT
++      u.id AS user_id,
++      tta.solved_at,
++      -- Calculate time difference from previous solved task by same user
++      EXTRACT(EPOCH FROM (
++        tta.solved_at - LAG(tta.solved_at) OVER (
++          PARTITION BY u.id
++          ORDER BY tta.solved_at
++        )
++      )) AS time_between_solutions_seconds
++    FROM test_task_attempts tta
++    INNER JOIN users u ON tta.user_id = u.id
++    INNER JOIN user_groups ug ON u.id = ug.user_id
++    INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++    WHERE
++      -- Only include tasks solved in the last 2 months
++      tta.solved_at >= NOW() - INTERVAL '2 months'
++      -- Only include solved tasks
++      AND tta.solved_at IS NOT NULL
++      -- Only include users with status STUDYING
++      AND u.student_status = 'STUDYING'
++      -- Filter for course with id from course_info
++      AND sg.course_id = (SELECT id FROM course_info)
++  ),
++
++  -- Calculate median time between solutions for each student
++  student_medians AS (
++    SELECT
++      user_id,
++      PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++    FROM consecutive_solutions
++    WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++    GROUP BY user_id
++  )
++
++  -- Insert results into the temporary table
++  INSERT INTO course_completion_metrics
++  SELECT
++    (SELECT id FROM course_info) AS course_id,
++    (SELECT slug FROM course_info) AS course_slug,
++    COUNT(DISTINCT user_id) AS students_count,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) AS median_time_delta_seconds,
++    -- Convert seconds to hours, minutes, seconds format
++    CONCAT(
++      FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++      FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++      FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++    ) AS median_time_formatted
++  FROM student_medians;
++END;
++$$ LANGUAGE plpgsql;
++
++-- Clear previous results
++TRUNCATE course_completion_metrics;
++
++-- Calculate metrics for multiple courses
++SELECT calculate_course_metrics('frontend');
++SELECT calculate_course_metrics('fullstack_js');
++SELECT calculate_course_metrics('react');
++SELECT calculate_course_metrics('java_core');
++-- Add more courses as needed
++
++-- Return the combined results
++SELECT * FROM course_completion_metrics ORDER BY course_slug;
++
+
+# 2025-04-25 13:32:44.541043
++-- First, find time between consecutive solutions by the same student for multiple courses
++WITH
++
++-- Get course info for multiple courses
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE slug IN (
++    'frontend',
++    'java',
++    'ui-ux',
++    'python',
++    'frontend-parttime',
++    'java-parttime',
++    'ui-ux-parttime'
++  )
++),
++
++consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    sg.course_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id, sg.course_id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for courses in the list
++    AND sg.course_id IN (SELECT id FROM course_info)
++),
++
++student_medians AS (
++  SELECT
++    user_id,
++    course_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id, course_id
++)
++
++SELECT
++  ci.id AS course_id,
++  ci.slug AS course_slug,
++  COUNT(DISTINCT sm.user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) AS median_time_delta_seconds,
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM course_info ci
++LEFT JOIN student_medians sm ON sm.course_id = ci.id
++GROUP BY ci.id, ci.slug;
++
+
+# 2025-04-25 13:34:20.577377
++-- First, find time between consecutive solutions by the same student for course id 3
++WITH
++
++-- Get course info
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE slug = 'frontend-parttime'
++),
++
++consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = (SELECT id FROM course_info)
++),
++
++-- Calculate median time between solutions for each student
++student_medians AS (
++  SELECT
++    user_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id
++),
++
++-- Calculate aggregate metrics for course id 3
++SELECT
++  (SELECT id FROM course_info) AS course_id,
++  (SELECT slug FROM course_info) AS course_slug,
++  COUNT(DISTINCT user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians;
++
+
+# 2025-04-25 13:35:27.362644
++-- First, find time between consecutive solutions by the same student for course id 3
++WITH
++
++-- Get course info
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE slug = 'frontend-parttime'
++),
++
++consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for course with id 3
++    AND sg.course_id = (SELECT id FROM course_info)
++),
++
++-- Calculate median time between solutions for each student
++student_medians AS (
++  SELECT
++    user_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id
++)
++
++-- Calculate aggregate metrics for course id 3
++SELECT
++  (SELECT id FROM course_info) AS course_id,
++  (SELECT slug FROM course_info) AS course_slug,
++  COUNT(DISTINCT user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) AS median_time_delta_seconds,
++  -- Convert seconds to hours, minutes, seconds format
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM student_medians;
++
+
+# 2025-04-25 13:35:45.592216
++-- First, find time between consecutive solutions by the same student for multiple courses
++WITH
++
++-- Get course info for multiple courses
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE slug IN (
++    'frontend',
++    'java',
++    'ui-ux',
++    'python',
++    'frontend-parttime',
++    'java-parttime',
++    'ui-ux-parttime'
++  )
++),
++
++consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    sg.course_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id, sg.course_id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for courses in the list
++    AND sg.course_id IN (SELECT id FROM course_info)
++),
++
++student_medians AS (
++  SELECT
++    user_id,
++    course_id,
++    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY time_between_solutions_seconds) AS median_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id, course_id
++)
++
++SELECT
++  ci.id AS course_id,
++  ci.slug AS course_slug,
++  COUNT(DISTINCT sm.user_id) AS students_count,
++  PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) AS median_time_delta_seconds,
++  CONCAT(
++    FLOOR(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY sm.median_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS median_time_formatted
++FROM course_info ci
++LEFT JOIN student_medians sm ON sm.course_id = ci.id
++GROUP BY ci.id, ci.slug;
++
+
+# 2025-04-25 13:45:25.977548
++-- First, find time between consecutive solutions by the same student for multiple courses
++WITH
++
++-- Get course info for multiple courses
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE slug IN (
++    'frontend',
++    'java',
++    'ui-ux',
++    'python',
++    'frontend-parttime',
++    'java-parttime',
++    'ui-ux-parttime'
++  )
++),
++
++consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    sg.course_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id, sg.course_id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for courses in the list
++    AND sg.course_id IN (SELECT id FROM course_info)
++),
++
++student_medians AS (
++  SELECT
++    user_id,
++    course_id,
++    AVG(time_between_solutions_seconds) AS avg_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id, course_id
++)
++
++SELECT
++  ci.id AS course_id,
++  ci.slug AS course_slug,
++  COUNT(DISTINCT sm.user_id) AS students_count,
++  AVG(sm.avg_time_between_solutions) AS avg_time_delta_seconds,
++  CONCAT(
++    FLOOR(AVG(sm.avg_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((AVG(sm.avg_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((AVG(sm.avg_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS avg_time_formatted
++FROM course_info ci
++LEFT JOIN student_medians sm ON sm.course_id = ci.id
++GROUP BY ci.id, ci.slug;
++
+
+# 2025-04-25 19:39:48.258696
++\copy (
++-- First, find time between consecutive solutions by the same student for multiple courses
++WITH
++
++-- Get course info for multiple courses
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE course.type in ('POSTPAID', 'PREPAID')
++),
++
++consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    sg.course_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id, sg.course_id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for courses in the list
++    AND sg.course_id IN (SELECT id FROM course_info)
++),
++
++student_medians AS (
++  SELECT
++    user_id,
++    course_id,
++    AVG(time_between_solutions_seconds) AS avg_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id, course_id
++)
++
++SELECT
++  ci.id AS course_id,
++  ci.slug AS course_slug,
++  COUNT(DISTINCT sm.user_id) AS students_count,
++  AVG(sm.avg_time_between_solutions) AS avg_time_delta_seconds,
++  CONCAT(
++    FLOOR(AVG(sm.avg_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((AVG(sm.avg_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((AVG(sm.avg_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS avg_time_formatted
++FROM course_info ci
++LEFT JOIN student_medians sm ON sm.course_id = ci.id
++GROUP BY ci.id, ci.slug
++) to 'all_courses_avg_between_tasks.csv' with csv header
+
+# 2025-04-25 19:40:11.164621
++\copy (
++-- First, find time between consecutive solutions by the same student for multiple courses
++WITH
++
++-- Get course info for multiple courses
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE courses.type in ('POSTPAID', 'PREPAID')
++),
++
++consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    sg.course_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id, sg.course_id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for courses in the list
++    AND sg.course_id IN (SELECT id FROM course_info)
++),
++
++student_medians AS (
++  SELECT
++    user_id,
++    course_id,
++    AVG(time_between_solutions_seconds) AS avg_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id, course_id
++)
++
++SELECT
++  ci.id AS course_id,
++  ci.slug AS course_slug,
++  COUNT(DISTINCT sm.user_id) AS students_count,
++  AVG(sm.avg_time_between_solutions) AS avg_time_delta_seconds,
++  CONCAT(
++    FLOOR(AVG(sm.avg_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((AVG(sm.avg_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((AVG(sm.avg_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS avg_time_formatted
++FROM course_info ci
++LEFT JOIN student_medians sm ON sm.course_id = ci.id
++GROUP BY ci.id, ci.slug
++) to 'all_courses_avg_between_tasks.csv' with csv header
+
+# 2025-04-26 09:42:52.669499
++SELECT 
++    pg_size_pretty(pg_database_size(current_database())) AS database_size;
+
+# 2025-04-26 09:43:23.404314
++SELECT 
++    table_schema || '.' || table_name AS table_full_name,
++    pg_size_pretty(pg_total_relation_size(table_schema || '.' || table_name)) AS table_size
++FROM 
++    information_schema.tables
++WHERE 
++    table_schema NOT IN ('pg_catalog', 'information_schema')
++    AND table_type = 'BASE TABLE'
++ORDER BY 
++    pg_total_relation_size(table_schema || '.' || table_name) DESC;
+
+# 2025-04-26 09:43:54.502011
++SELECT 
++    table_schema || '.' || table_name AS table_full_name,
++    pg_size_pretty(pg_total_relation_size(format('%I.%I', table_schema, table_name)::regclass)) AS table_size
++FROM 
++    information_schema.tables
++WHERE 
++    table_schema NOT IN ('pg_catalog', 'information_schema')
++    AND table_type = 'BASE TABLE'
++ORDER BY 
++    pg_total_relation_size(format('%I.%I', table_schema, table_name)::regclass) DESC;
+
+# 2025-04-28 10:33:12.253905
++select distinct type from courses c;
+
+# 2025-04-28 10:33:29.870963
++\copy (
++-- First, find time between consecutive solutions by the same student for multiple courses
++WITH
++
++-- Get course info for multiple courses
++course_info AS (
++  SELECT id, slug
++  FROM courses
++  WHERE courses.type in ('POSTPAID', 'PREPAID')
++),
++
++consecutive_solutions AS (
++  SELECT
++    u.id AS user_id,
++    sg.course_id,
++    tta.solved_at,
++    -- Calculate time difference from previous solved task by same user
++    EXTRACT(EPOCH FROM (
++      tta.solved_at - LAG(tta.solved_at) OVER (
++        PARTITION BY u.id, sg.course_id
++        ORDER BY tta.solved_at
++      )
++    )) AS time_between_solutions_seconds
++  FROM test_task_attempts tta
++  INNER JOIN users u ON tta.user_id = u.id
++  INNER JOIN user_groups ug ON u.id = ug.user_id
++  INNER JOIN students_groups sg ON ug.students_group_id = sg.id
++  WHERE
++    -- Only include tasks solved in the last 2 months
++    tta.solved_at >= NOW() - INTERVAL '2 months'
++    -- Only include solved tasks
++    AND tta.solved_at IS NOT NULL
++    -- Only include users with status STUDYING
++    AND u.student_status = 'STUDYING'
++    -- Filter for courses in the list
++    AND sg.course_id IN (SELECT id FROM course_info)
++),
++
++student_medians AS (
++  SELECT
++    user_id,
++    course_id,
++    AVG(time_between_solutions_seconds) AS avg_time_between_solutions
++  FROM consecutive_solutions
++  WHERE time_between_solutions_seconds IS NOT NULL -- Skip first solution (which has no previous)
++  GROUP BY user_id, course_id
++)
++
++SELECT
++  ci.id AS course_id,
++  ci.slug AS course_slug,
++  COUNT(DISTINCT sm.user_id) AS students_count,
++  AVG(sm.avg_time_between_solutions) AS avg_time_delta_seconds,
++  CONCAT(
++    FLOOR(AVG(sm.avg_time_between_solutions) / 3600)::INTEGER, ' hours, ',
++    FLOOR((AVG(sm.avg_time_between_solutions))::INTEGER % 3600 / 60)::INTEGER, ' minutes, ',
++    FLOOR((AVG(sm.avg_time_between_solutions))::INTEGER % 60)::INTEGER, ' seconds'
++  ) AS avg_time_formatted
++FROM course_info ci
++LEFT JOIN student_medians sm ON sm.course_id = ci.id
++GROUP BY ci.id, ci.slug
++) to 'all_courses_avg_between_tasks.csv' with csv header
+
+# 2025-04-28 13:00:48.621151
++select count(*) from test_tasks where deleted_at is null;
+
+# 2025-04-28 14:44:23.107438
++\d course_topic_tasks
+
+# 2025-04-28 15:13:35.946531
++select max(id) from test_tasks tt;
+
+# 2025-04-28 15:58:12.185463
++select id from users where email = 'ivkdev444@gmail.com';
+
+# 2025-04-28 15:58:54.858700
++select cu.id, cu.course_id from course_users cu jo where user_id = 50649;
+
+# 2025-04-28 15:59:21.411851
++select cu.id, cu.course_id, c.slug from course_users cu join courses c ON c.id = cu.course_id where user_id = 50649 and c.type = 'POSTPAID';
+
+# 2025-04-28 15:59:30.572732
++select cu.status, cu.id, cu.course_id, c.slug from course_users cu join courses c ON c.id = cu.course_id where user_id = 50649 and c.type = 'POSTPAID';
+
+# 2025-04-28 16:09:09.026144
++update course_users set course_id = 1 where id = 80271;
+
+# 2025-04-28 17:11:09.552091
++select deleted_at from test_tasks where id = 1260;
+
+# 2025-04-28 17:18:53.974540
++select deleted_at from test_tasks where id in (2988,
++    2990,
++    2989,
++    2484,
++    2596,
++    2207,
++    2620,
++    2518,
++    2632);
+
+# 2025-04-28 18:40:53.678404
++select id from test_tasks tt where name = 'Can modal';
+
+# 2025-04-28 18:41:11.414558
++select * from course_topic_tasks where test_task_id = 756;
+
+# 2025-04-28 18:41:35.325982
++select slug, course_id from course_topics where id = 292;
+
+# 2025-04-28 18:43:24.423054
++select slug, course_id from course_topics where id = (
++select id from course_topic_tasks where test_task_id = (
++select id from test_tasks tt where name = 'comment code'
++)
++);
+
+# 2025-04-28 18:43:38.489977
++select slug from courses where id = 10;
+
+# 2025-04-28 18:44:25.012573
++select * from test_tasks tt where name = 'comment code';
+
+# 2025-04-28 18:44:52.958026
++select id from course_topic_tasks where test_task_id = 52;
+
+# 2025-04-28 18:44:59.292100
++select * from course_topic_tasks where test_task_id = 52;
+
+# 2025-04-28 18:45:23.564223
++select slug, course_id from course_topics where id = (
++select id from course_topic_tasks where test_task_id = (
++select id from test_tasks tt where name = 'comment code'
++)
++);
+
+# 2025-04-28 18:45:57.576924
++select * from course_topics where id = (
++select id from course_topic_tasks where test_task_id = (
++select id from test_tasks tt where name = 'comment code'
++)
++);
+
+# 2025-04-28 18:46:19.029724
++select * from course where id = 10;
+
+# 2025-04-28 18:46:21.483175
++select * from courses where id = 10;
+
+# 2025-04-28 18:48:28.133399
++select id from test_tasks tt where name = 'comment code';
+
+# 2025-04-28 18:48:32.752463
++\x
+
+# 2025-04-28 18:48:49.599635
++select * from course_topic_tasks ctt where test_task_id = 52;
+
+# 2025-04-29 14:54:23.610642
++SELECT
++    tt.id AS task_id,
++    tt.name AS task_name,
++    ttgi.repo_owner,
++    ttgi.repo_name
++FROM
++    test_tasks tt
++JOIN
++    test_task_versions ttv ON tt.id = ttv.test_task_id
++JOIN
++    test_task_github_info ttgi ON ttv.id = ttgi.test_task_version_id
++WHERE
++    tt.programming_language = 'Java';
+
+# 2025-04-29 14:54:30.517576
++SELECT
++    tt.id AS task_id,
++    tt.name AS task_name,
++    ttgi.repo_owner,
++    ttgi.repo_name
++FROM
++    test_tasks tt
++JOIN
++    test_task_versions ttv ON tt.id = ttv.test_task_id
++JOIN
++    test_task_github_info ttgi ON ttv.id = ttgi.test_task_version_id
++WHERE
++    tt.programming_language = 'JAVA';
+
+# 2025-04-29 14:54:59.815299
++select distinct programming_language from test_tasks tt;
+
+# 2025-04-29 14:55:06.123556
++SELECT
++    tt.id AS task_id,
++    tt.name AS task_name,
++    ttgi.repo_owner,
++    ttgi.repo_name
++FROM
++    test_tasks tt
++JOIN
++    test_task_versions ttv ON tt.id = ttv.test_task_id
++JOIN
++    test_task_github_info ttgi ON ttv.id = ttgi.test_task_version_id
++WHERE
++    tt.programming_language = 'java';
+
+# 2025-04-29 14:56:07.683427
++\copy (SELECT
++    ttgi.repo_name
++FROM
++    test_tasks tt
++JOIN
++    test_task_versions ttv ON tt.id = ttv.test_task_id
++JOIN
++    test_task_github_info ttgi ON ttv.id = ttgi.test_task_version_id
++WHERE
++    tt.programming_language = 'java') to 'java_repos.csv' with csv header
+
+# 2025-04-29 14:58:02.532585
++\copy (SELECT
++    ttgi.repo_name,
++FROM
++    test_tasks tt
++JOIN
++    test_task_versions ttv ON tt.id = ttv.test_task_id
++JOIN
++    test_task_github_info ttgi ON ttv.id = ttgi.test_task_version_id
++WHERE
++    tt.programming_language = 'java') to 'java_repos.csv' with csv header
+
+# 2025-04-29 14:58:11.293569
++\copy (SELECT
++    ttgi.repo_name, ttgi.repo_owner
++FROM
++    test_tasks tt
++JOIN
++    test_task_versions ttv ON tt.id = ttv.test_task_id
++JOIN
++    test_task_github_info ttgi ON ttv.id = ttgi.test_task_version_id
++WHERE
++    tt.programming_language = 'java') to 'java_repos.csv' with csv header
+
+# 2025-04-29 16:31:54.228907
++select id, user_id, status, test_task_link_id from course_users cu where id = 1457986;
+
+# 2025-04-29 16:32:59.562558
++\d application_statuses
+
+# 2025-04-29 16:33:25.254228
++select id, user_id, status, test_task_link_id from course_users cu where id = 1457986;
+
+# 2025-04-29 16:33:29.529228
++\d course_users
+
+# 2025-04-29 16:34:45.930831
++\d application_statuses
+
+# 2025-04-29 16:34:56.161748
++\d course_user_application_statuses
+
+# 2025-04-29 16:35:08.988658
++select * from course_user_application_statuses where course_user_id = 1457986;
+
+# 2025-04-29 16:35:24.022442
++select * from application_statuses  where id = 3;
+
+# 2025-04-29 16:36:11.690134
++select * from course_users cu where id = 1457986;
+
+# 2025-04-29 17:13:14.444017
++select * from application_statuses;
+
+# 2025-04-29 17:13:30.018444
++select * from course_user_application_statuses where course_user_id = 1457986;
+
+# 2025-04-29 17:13:54.145889
++update course_user_application_statuses set application_status_id = 8 where course_user_id = 1457986;
+
+# 2025-04-29 17:14:37.954497
++select id from users where email = 'yurii.holiuk@mate.academy';
+
+# 2025-04-29 17:14:53.807632
++update users set updated_at = now() where email = 'yurii.holiuk@mate.academy';
+
+# 2025-04-29 17:15:25.185888
++update course_user_application_statuses set application_status_id = 3 where course_user_id = 1457986;
+
+# 2025-04-29 17:16:08.103240
++update course_user_application_statuses set application_status_id = 8 where course_user_id = 1457986;
+
+# 2025-04-30 13:05:35.823073
++select * from user_roles ur where id = 2;
+
+# 2025-04-30 13:05:53.249086
++select * from granted_permissions gp where role_id = 2;
+
+# 2025-04-30 13:06:11.517823
++select * from granted_permissions gp where role_id = 2 and permission like '%study:';
+
+# 2025-04-30 13:06:19.215528
++select * from granted_permissions gp where role_id = 2 and permission like 'study:%';
+
+# 2025-04-30 13:13:23.452762
++select * from courses where id = 3848;
+
+# 2025-04-30 13:13:30.706621
++select is_hidden_by_default from courses where id = 3848;
+
+# 2025-04-30 13:36:35.144855
++select id from courses where slug = 'frontend';
+
+# 2025-04-30 13:36:53.223518
++select * from course_modules cm where parent_course_id = 4;
+
+# 2025-04-30 13:38:41.012175
++select c.id, c.slug, cm."position"  from course_modules cm join courses c ON c.id = cm.child_course_id where parent_course_id = 4 order by cm."position";
+
+# 2025-04-30 13:42:34.088004
++select id from courses where id = 78;
+
+# 2025-04-30 13:42:38.888258
++select slug from courses where id = 78;
+
+# 2025-04-30 13:42:53.700155
++select c.id, c.slug, cm."position"  from course_modules cm join courses c ON c.id = cm.child_course_id where parent_course_id = 78 order by cm."position";
+
+# 2025-04-30 13:45:35.629067
++select slug, "type" from courses where id = 78;
+
+# 2025-04-30 13:55:58.212231
++update course_modules set "position" = 2 where child_course_id = (select id from courses where slug = 'typescript-basics');
+
+# 2025-04-30 15:11:26.492533
++\d course_topic_learn_items
+
+# 2025-04-30 15:11:45.526403
++\d course_topic_theory_files
+
+# 2025-04-30 15:13:40.477911
++\d test_tasks
+
+# 2025-04-30 15:15:39.841284
++\d learn_videos
+
+# 2025-04-30 15:24:12.204231
++\d course_topic_theory_files
+
+# 2025-04-30 16:07:06.492971
++select * from learn_videos lv where id = 8050;
+
+# 2025-04-30 16:07:19.552110
++select * from course_topic_v where id = 8050;
+
+# 2025-04-30 16:07:24.436904
++select * from course_topic_videos ctv where id = 8050;
+
+# 2025-04-30 16:07:35.787044
++select * from course_topic_v where id = 7671;
+
+# 2025-04-30 16:07:41.289010
++select * from learn_videos lv where id = 7671;
+
+# 2025-04-30 17:07:58.445137
++select * from course_topic_tasks ctt where test_task_id = 3729
++;
+
+# 2025-04-30 17:09:00.545239
++select * from course_topic_tasks ctt where test_task_id = 3732;
+
+# 2025-04-30 17:09:52.344364
++select slug from course_user_topics cut where id = 2331;
+
+# 2025-04-30 17:09:58.473070
++select slug from course_topics cut where id = 2331;
+
+# 2025-05-01 22:27:14.422948
++select slug from course_topics where id = 7;
+
+# 2025-05-01 22:27:28.205928
++select id, slug, course_id from course_topics where id = 7;
+
+# 2025-05-01 22:27:38.227735
++select slug from courses where id = 45;
+
+# 2025-05-02 12:26:00.142571
++select count(*) from course_topic_theory_files;
+
+# 2025-05-02 12:35:19.224573
++update course_topic_theory_files set updated_at = now();
+
+# 2025-05-02 14:37:58.071568
++select count(*) from course_topic_theory_files;
+
+# 2025-05-02 14:43:47.719015
++select updated_at from course_topic_theory_files where id = 4930;
+
+# 2025-05-05 10:35:02.049813
++\d course_topic_theory_files
+
+# 2025-05-05 18:05:06.027267
++select * from courses where slug = 'lms-demo-test';
+
+# 2025-05-05 18:05:08.609473
++\x
+
+# 2025-05-05 18:05:09.299054
++select * from courses where slug = 'lms-demo-test';
+
+# 2025-05-05 18:05:31.640451
++select * from professions where slug = 'lms-demo-test';
+
+# 2025-05-05 18:28:48.979879
++\x
+
+# 2025-05-05 18:28:58.245364
++select * from granted_permissions gp where permission = 'COURSE_TOPICS::FULL_ACCESS';
+
+# 2025-05-05 18:29:33.182847
++select * from user_roles ur where id in (12, 1, 6, 9);
+
+# 2025-05-05 18:39:04.543319
++select * from course_topics ct where slug = 'array-iteration-methods-practice';
+
+# 2025-05-05 18:40:08.682024
++select id from users where email = 'yurii.st11@gmail.com';
+
+# 2025-05-05 18:40:38.635514
++select * from course_user_topics cut where user_id = 318337 and course_topic_slug = 'array-iteration-methods-practice';
+
+# 2025-05-05 18:41:04.958554
++\x
+
+# 2025-05-05 18:41:32.175899
++select * from test_task_links ttl where id = 3313200;
+
+# 2025-05-07 13:34:33.087703
++select * from course_topic_theory_files cttf where id = id;
+
+# 2025-05-07 13:34:50.323628
++select * from course_topic_theory_files cttf where id = 7683;
+
+# 2025-05-07 13:35:04.415573
++select * from translates t where code = 'eb4374c5-2622-4d4c-bdda-da0c2037271f-3088-1744814992889';
+
+# 2025-05-07 13:43:29.659359
++update course_topic_theory_files set updated_at = now() where id = 1;
+
+# 2025-05-07 13:44:58.953186
++update course_topic_theory_files set updated_at = now() where id < 11;
+
+# 2025-05-07 14:52:50.370528
++update course_topic_theory_files set updated_at = now() where id < 101;
+
+# 2025-05-07 15:37:16.668905
++select * from test_tasks tt where name like 'Let%';
+
+# 2025-05-07 15:37:42.068862
++select * from test_tasks tt where name like "Let's meet each other";
+
+# 2025-05-07 15:38:07.108345
++select * from test_tasks tt where name like 'Let''s meet each other';
+
+# 2025-05-07 15:39:01.268007
++select tt.id, tt_id, tt.slug tt_slug, cat.id, cat.course_id from test_tasks tt join course_assignment_tasks cat ON cat.test_task_id = tt.id where name like 'Let''s meet each other';
+
+# 2025-05-07 15:39:06.564112
++select tt.id tt_id, tt.slug tt_slug, cat.id, cat.course_id from test_tasks tt join course_assignment_tasks cat ON cat.test_task_id = tt.id where name like 'Let''s meet each other';
+
+# 2025-05-07 15:46:04.518550
++-- Get related records from course_assignment_tasks
++SELECT * FROM course_assignment_tasks WHERE test_task_id = 2299;
++
++-- Get related records from english_test_assignments
++SELECT * FROM english_test_assignments WHERE test_task_id = 2299;
++
++-- Get related records from course_topic_tasks
++SELECT * FROM course_topic_tasks WHERE test_task_id = 2299;
++
++-- Get related records from live_coding_tasks
++SELECT * FROM live_coding_tasks WHERE test_task_id = 2299;
++
++-- Get related records from morning_tasks
++SELECT * FROM morning_tasks WHERE test_task_id = 2299;
++
++-- Get related records from test_tasks_preview
++SELECT * FROM test_tasks_preview WHERE test_task_id = 2299;
+
+# 2025-05-07 15:47:43.494421
++update course_topic_theory_files set updated_at = now() where id < 101;
+
+# 2025-05-07 16:18:33.502921
++update course_topic_theory_files set updated_at = now() where id < 201;
+
+# 2025-05-07 17:00:19.421021
++update course_topic_theory_files set updated_at = now() where id < 101;
+
+# 2025-05-07 17:29:49.905951
++update course_topic_theory_files set updated_at = now() where id > 100 and id < 1001;
+
+# 2025-05-07 17:55:55.942284
++update course_topic_theory_files set updated_at = now() where id < 201;
+
+# 2025-05-07 18:01:39.163257
++update course_topic_theory_files set updated_at = now() where id > 1000 and id < 2001;
+
+# 2025-05-07 18:15:02.334514
++update course_topic_theory_files set updated_at = now() where id > 2000 and id < 3001;
+
+# 2025-05-07 18:20:22.536874
++update course_topic_theory_files set updated_at = now() where id > 3000 and id < 4001;
+
+# 2025-05-07 18:21:23.065561
++select count(*) from course_topic_theory_files;
+
+# 2025-05-07 18:28:14.482148
++update course_topic_theory_files set updated_at = now() where id > 4000 and id < 5001;
+
+# 2025-05-07 18:35:45.877143
++update course_topic_theory_files set updated_at = now() where id > 5000 and id < 6001;
+
+# 2025-05-07 18:36:18.369172
++select id, slug, "type" from courses c where is_hidden_by_default = true;
+
+# 2025-05-07 18:42:34.937019
++update course_topic_theory_files set updated_at = now() where id > 6000 and id < 7001;
+
+# 2025-05-07 18:59:16.099152
++update course_topic_theory_files set updated_at = now() where id > 7000 and id < 8001;
+
+# 2025-05-08 11:20:08.790804
++select * from features f where name = 'light_funnel_test_assignment_english_task';
+
+# 2025-05-08 11:20:56.944556
++SELECT * FROM english_test_assignments WHERE test_task_id = 2299;
+
+# 2025-05-08 14:28:45.224170
++\d users
+
+# 2025-05-08 16:25:01.518952
++update course_topic_theory_files set updated_at = now();
+
+# 2025-05-08 16:30:01.826351
++select slug from course_topics where id = 3567;
+
+# 2025-05-08 21:31:46.775812
++select * from chats c where id = 126220;
+
+# 2025-05-08 21:31:49.250784
++\x
+
+# 2025-05-08 21:31:50.233066
++select * from chats c where id = 126220;
+
+# 2025-05-08 21:32:18.682276
++select * from domain_items di where item_id = 126220;
+
+# 2025-05-08 21:37:19.516313
++select * from chats c where id = 8081;
+
+# 2025-05-08 21:52:39.539426
++select domain_id from users where id = 391265;
+
+# 2025-05-08 21:53:04.298491
++select * from domain_items di where item_type = 'GLOBAL_CHAT' and domain_id = 1;
+
+# 2025-05-08 21:53:57.436084
++select count(*) from domain_items di where item_type = 'GLOBAL_CHAT' and domain_id = 1;
+
+# 2025-05-08 22:10:34.607495
++UPDATE chats
++SET last_action_time = NOW()
++WHERE id IN (
++  6007, 5913, 5394, 7975, 7976, 7977,
++  7978, 7979, 7980, 7981, 7983, 7984,
++  7995, 7985, 7986, 7987, 7988, 7989,
++  7990, 7991, 7992, 7993, 7994, 7996,
++  7997, 7998, 7999, 8000, 8001, 8002,
++  8003, 8004, 8005, 8006, 8007, 8008,
++  8009, 8010, 8011, 8012, 8013, 8014,
++  8015, 8016
++);
+
+# 2025-05-08 22:36:29.326270
++update course_topic_theory_files set updated_at = now() where id = 7334;
+
+# 2025-05-09 12:14:05.906033
++select count(*), type from test_tasks group by type;
+
+# 2025-05-09 12:14:13.716165
++select count(*), "type" from test_tasks group by "type";
+
+# 2025-05-09 12:14:29.216109
++select count(*), flow from test_tasks group by flow;
+
+# 2025-05-13 13:31:43.755513
++\d course_topic_learn_items
+
+# 2025-05-13 13:42:16.846615
++select * from course_topic_learn_items ctli where course_topic_theory_file_id in (5976, 5977);
+
+# 2025-05-13 14:33:48.350249
++select id, slug, course_id from course_topics where id = 2694;
+
+# 2025-05-13 14:34:08.063991
++select id, slug from courses where id = 412;
+
+# 2025-05-13 14:38:00.339128
++SELECT ct.id, ct.slug, ct.course_id, c.slug AS course_slug
++FROM course_topics ct
++JOIN courses c ON ct.course_id = c.id
++WHERE ct.id IN (
++    735, 736, 738, 737, 3024, 3025, 3026, 2700, 2699, 2697, 2696, 340, 1466, 2, 2643, 2644, 2645, 393, 394, 396, 390, 140, 141, 1570, 1575, 2394, 2395, 2396, 2397, 2981, 2978, 2976
++);
+
+# 2025-05-13 14:43:37.597013
++SELECT ct.id, ct.slug, ct.course_id, c.slug AS course_slug
++FROM course_topics ct
++JOIN courses c ON ct.course_id = c.id
++WHERE ct.id IN (
++    735, 736, 738, 737, 3024, 3025, 3026, 2700, 2699, 2697, 2696, 340, 1466, 2, 2643, 2644, 2645, 393, 394, 396, 390, 140, 141, 1570, 1575, 2394, 2395, 2396, 2397, 2981, 2978, 2976
++) and c.id = 10;
+
+# 2025-05-13 14:46:16.302943
++SELECT ct.id, ct.slug, ct.course_id, c.slug AS course_slug
++FROM course_topics ct
++JOIN courses c ON ct.course_id = c.id
++WHERE ct.id IN (
++    735, 736, 738, 737, 3024, 3025, 3026, 2700, 2699, 2697, 2696, 340, 1466, 2, 2643, 2644, 2645, 393, 394, 396, 390, 140, 141, 1570, 1575, 2394, 2395, 2396, 2397, 2981, 2978, 2976
++);
+
+# 2025-05-13 14:46:27.011740
++SELECT ct.id, ct.slug, ct.course_id, c.slug AS course_slug
++FROM course_topics ct
++JOIN courses c ON ct.course_id = c.id
++WHERE ct.id IN (
++    735, 736, 738, 737, 3024, 3025, 3026, 2700, 2699, 2697, 2696, 340, 1466, 2, 2643, 2644, 2645, 393, 394, 396, 390, 140, 141, 1570, 1575, 2394, 2395, 2396, 2397, 2981, 2978, 2976
++) and c.id = 412;
+
+# 2025-05-13 14:47:20.225303
++select id, slug, status from course_topics ct where course_id = 412;
+
+# 2025-05-13 14:47:30.525738
++select * from course_topics ct where course_id = 412;
+
+# 2025-05-13 14:48:20.264958
++select id, slug, status, order, course_id from course_topics ct where course_id in (10, 412) order by course_id;
+
+# 2025-05-13 14:48:28.097539
++select id, slug, status, "order", course_id from course_topics ct where course_id in (10, 412) order by course_id;
+
+# 2025-05-13 14:48:35.817395
++select id, slug, status, "order", course_id from course_topics ct where course_id in (10, 412) order by course_id, "order";
+
+# 2025-05-13 14:54:38.341668
++WITH course_topic_analysis AS (
++  SELECT 
++    c.id AS course_id,
++    c.slug AS course_slug,
++    COUNT(ct.id) AS total_topics,
++    COUNT(DISTINCT ct."order") AS distinct_order_count,
++    MIN(ct."order") AS min_order,
++    MAX(ct."order") AS max_order,
++    ARRAY_AGG(DISTINCT ct."order" ORDER BY ct."order") AS order_values,
++    -- Find duplicate orders within each course
++    (SELECT COUNT(*) 
++     FROM (
++       SELECT ct2."order" 
++       FROM course_topics ct2 
++       WHERE ct2.course_id = c.id AND ct2.deleted_at IS NULL 
++       GROUP BY ct2."order" 
++       HAVING COUNT(*) > 1
++     ) AS dups
++    ) AS duplicate_order_count,
++    -- Check for primary issues
++    CASE 
++      WHEN COUNT(ct.id) > 1 AND COUNT(DISTINCT ct."order") = 1 THEN 'all_same_order'
++      WHEN MIN(ct."order") != 0 AND COUNT(ct.id) > 0 THEN 'doesnt_start_with_zero'
++      ELSE NULL
++    END AS primary_issue
++  FROM 
++    courses c
++  LEFT JOIN 
++    course_topics ct ON c.id = ct.course_id AND ct.deleted_at IS NULL
++  GROUP BY 
++    c.id, c.slug
++  HAVING 
++    COUNT(ct.id) > 0 -- Only include courses with topics
++),
++gap_analysis AS (
++  SELECT
++    course_id,
++    order_values,
++    -- Check if the sequence has gaps
++    CASE 
++      WHEN array_length(order_values, 1) > 1 AND 
++           (order_values <> ARRAY(
++             SELECT generate_series(
++               order_values[1], 
++               order_values[1] + array_length(order_values, 1) - 1
++             )
++           ))
++      THEN TRUE
++      ELSE FALSE
++    END AS has_gaps
++  FROM 
++    course_topic_analysis
++)
++SELECT 
++  a.course_id,
++  a.course_slug,
++  a.total_topics,
++  a.distinct_order_count,
++  a.min_order,
++  a.max_order,
++  a.order_values,
++  a.primary_issue,
++  g.has_gaps,
++  a.duplicate_order_count,
++  -- Overall issue categorization
++  CASE
++    WHEN a.primary_issue = 'all_same_order' THEN 'All topics have same order'
++    WHEN a.primary_issue = 'doesnt_start_with_zero' THEN 'Order doesn''t start from 0'
++    WHEN g.has_gaps THEN 'Has gaps in order sequence'
++    WHEN a.duplicate_order_count > 0 THEN 'Has duplicate order values'
++    ELSE 'No issues'
++  END AS issue_type
++FROM 
++  course_topic_analysis a
++LEFT JOIN 
++  gap_analysis g ON a.course_id = g.course_id
++WHERE 
++  -- Only include courses with problems
++  a.primary_issue IS NOT NULL OR
++  g.has_gaps OR
++  a.duplicate_order_count > 0
++ORDER BY 
++  -- Sort by issue type and then by number of topics
++  CASE 
++    WHEN a.primary_issue = 'all_same_order' THEN 1
++    WHEN a.primary_issue = 'doesnt_start_with_zero' THEN 2
++    WHEN g.has_gaps THEN 3
++    WHEN a.duplicate_order_count > 0 THEN 4
++    ELSE 5
++  END,
++  a.total_topics DESC;
+
+# 2025-05-13 15:04:20.550947
++\copy (WITH course_topic_analysis AS (
++  SELECT 
++    c.id AS course_id,
++    c.slug AS course_slug,
++    COUNT(ct.id) AS total_topics,
++    COUNT(DISTINCT ct."order") AS distinct_order_count,
++    MIN(ct."order") AS min_order,
++    MAX(ct."order") AS max_order,
++    ARRAY_AGG(DISTINCT ct."order" ORDER BY ct."order") AS order_values,
++    -- Find duplicate orders within each course
++    (SELECT COUNT(*) 
++     FROM (
++       SELECT ct2."order" 
++       FROM course_topics ct2 
++       WHERE ct2.course_id = c.id AND ct2.deleted_at IS NULL 
++       GROUP BY ct2."order" 
++       HAVING COUNT(*) > 1
++     ) AS dups
++    ) AS duplicate_order_count,
++    -- Check for primary issues
++    CASE 
++      WHEN COUNT(ct.id) > 1 AND COUNT(DISTINCT ct."order") = 1 THEN 'all_same_order'
++      WHEN MIN(ct."order") != 0 AND COUNT(ct.id) > 0 THEN 'doesnt_start_with_zero'
++      ELSE NULL
++    END AS primary_issue
++  FROM 
++    courses c
++  LEFT JOIN 
++    course_topics ct ON c.id = ct.course_id AND ct.deleted_at IS NULL
++  GROUP BY 
++    c.id, c.slug
++  HAVING 
++    COUNT(ct.id) > 0 -- Only include courses with topics
++),
++gap_analysis AS (
++  SELECT
++    course_id,
++    order_values,
++    -- Check if the sequence has gaps
++    CASE 
++      WHEN array_length(order_values, 1) > 1 AND 
++           (order_values <> ARRAY(
++             SELECT generate_series(
++               order_values[1], 
++               order_values[1] + array_length(order_values, 1) - 1
++             )
++           ))
++      THEN TRUE
++      ELSE FALSE
++    END AS has_gaps
++  FROM 
++    course_topic_analysis
++)
++SELECT 
++  a.course_id,
++  a.course_slug,
++  a.total_topics,
++  a.distinct_order_count,
++  a.min_order,
++  a.max_order,
++  a.order_values,
++  a.primary_issue,
++  g.has_gaps,
++  a.duplicate_order_count,
++  -- Overall issue categorization
++  CASE
++    WHEN a.primary_issue = 'all_same_order' THEN 'All topics have same order'
++    WHEN a.primary_issue = 'doesnt_start_with_zero' THEN 'Order doesn''t start from 0'
++    WHEN g.has_gaps THEN 'Has gaps in order sequence'
++    WHEN a.duplicate_order_count > 0 THEN 'Has duplicate order values'
++    ELSE 'No issues'
++  END AS issue_type
++FROM 
++  course_topic_analysis a
++LEFT JOIN 
++  gap_analysis g ON a.course_id = g.course_id
++WHERE 
++  -- Only include courses with problems
++  a.primary_issue IS NOT NULL OR
++  g.has_gaps OR
++  a.duplicate_order_count > 0
++ORDER BY 
++  -- Sort by issue type and then by number of topics
++  CASE 
++    WHEN a.primary_issue = 'all_same_order' THEN 1
++    WHEN a.primary_issue = 'doesnt_start_with_zero' THEN 2
++    WHEN g.has_gaps THEN 3
++    WHEN a.duplicate_order_count > 0 THEN 4
++    ELSE 5
++  END,
++  a.total_topics DESC) to 'topics_analysis.csv' with csv header
+
+# 2025-05-13 15:10:31.272435
++select id, slug, course_id, "order" from course_topics where course_id = 412 order by "order";
+
+# 2025-05-13 15:11:00.310725
++-- Course: javascript (id: 239)
++WITH ordered_topics AS (
++  SELECT id, ROW_NUMBER() OVER (ORDER BY COALESCE("order", 0), id) - 1 as new_order
++  FROM course_topics
++  WHERE course_id = 412 AND deleted_at IS NULL
++)
++UPDATE course_topics
++SET "order" = ot.new_order
++FROM ordered_topics ot
++WHERE course_topics.id = ot.id;
+
+# 2025-05-13 15:11:05.978961
++select id, slug, course_id, "order" from course_topics where course_id = 412 order by "order";
+
+# 2025-05-13 15:12:27.557915
++select id, slug, course_id, "order" from course_topics where course_id = 485 order by "order";
+
+# 2025-05-13 15:13:29.141948
++begin;
+
+# 2025-05-13 15:13:30.344367
++-- Single query to fix all courses with duplicate order values
++-- This assigns sequential order values (starting from 0) for all topics within each course
++
++WITH courses_with_duplicates AS (
++  -- Find all courses that have duplicate order values
++  SELECT DISTINCT course_id
++  FROM (
++    SELECT 
++      course_id, 
++      "order",
++      COUNT(*) as count
++    FROM course_topics
++    WHERE deleted_at IS NULL
++    GROUP BY course_id, "order"
++    HAVING COUNT(*) > 1 OR "order" IS NULL
++  ) dups
++),
++ordered_topics AS (
++  -- Create new sequential order values for all topics in affected courses
++  SELECT 
++    ct.id,
++    ct.course_id,
++    ROW_NUMBER() OVER (PARTITION BY ct.course_id ORDER BY COALESCE(ct."order", 0), ct.id) - 1 as new_order
++  FROM course_topics ct
++  JOIN courses_with_duplicates cwd ON ct.course_id = cwd.course_id
++  WHERE ct.deleted_at IS NULL
++)
++-- Update all affected topics with new order values
++UPDATE course_topics
++SET "order" = ot.new_order
++FROM ordered_topics ot
++WHERE course_topics.id = ot.id;
+
+# 2025-05-13 15:13:46.790532
++select id, slug, course_id, "order" from course_topics where course_id = 485 order by "order";
+
+# 2025-05-13 15:14:06.720387
++select id, slug, course_id, "order" from course_topics where course_id = 239 order by "order";
+
+# 2025-05-13 15:14:22.485863
++commit;
+
+# 2025-05-13 15:17:31.237764
++select id from courses where slug = 'topics_order_to_slug';
+
+# 2025-05-13 15:17:50.130032
++select id, slug, course_id, "order" from course_topics w
++ here course_id = 4151 order by "order";
+
+# 2025-05-13 15:17:55.112540
++select id, slug, course_id, "order" from course_topics where course_id = 4151 order by "order";
