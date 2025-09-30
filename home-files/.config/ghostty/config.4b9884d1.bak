@@ -41,4 +41,3 @@ palette = 15=#24EAF7
 # custom-shader           = ./shaders/galaxy.glsl
 
 custom-shader-animation = false
-keybind = shift+enter=text:\n
