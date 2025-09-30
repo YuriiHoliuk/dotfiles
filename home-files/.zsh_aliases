@@ -1,8 +1,8 @@
 alias c='clear'
 
-alias ls="exa -F"
-alias ll="exa -alhF"
-alias tree="exa --tree"
+alias ls="eza -F"
+alias ll="eza -alhF"
+alias tree="eza --tree"
 
 alias ..='cd ../'
 alias ...='cd ../../'
@@ -11,6 +11,104 @@ alias ....='cd ../../../'
 alias mkdir='mkdir -pv'
 
 alias h='history'
+
+alias find='fd'
+alias grep='rg'
+alias cat='bat'
+
+# Common
+# alias claude='claude --dangerously-skip-permissions'
+alias sonnet='claude --dangerously-skip-permissions --model sonnet'
+alias opus='claude --dangerously-skip-permissions --model opus'
+alias gemini='gemini --yolo'
+
+# Replace the old alias with a function
+unalias ccs 2>/dev/null || true
+ccs() {
+    echo "Claude Code Usage Summary"
+    echo "========================"
+    
+    # Get dates
+    local today=$(date +%Y%m%d)
+    local seven_days_ago=$(date -v-7d +%Y%m%d)
+    
+    # Subscription period starts on the 7th of each month
+    local current_day=$(date +%d)
+    if [[ $current_day -ge 7 ]]; then
+        # We're past the 7th this month, so period started on the 7th of this month
+        local period_start=$(date +%Y%m)07
+    else
+        # We're before the 7th this month, so period started on the 7th of last month
+        local period_start=$(date -v-1m +%Y%m)07
+    fi
+    
+    echo ""
+    echo "📊 Active Block Status:"
+    ccusage blocks --active
+    
+    echo ""
+    echo "⏳ Fetching usage data for different periods..."
+    echo ""
+    
+    # Create temp files for parallel execution
+    local tmpdir=$(mktemp -d)
+    trap "rm -rf $tmpdir" EXIT
+    
+    # Run commands in parallel - reduced from 6 to 4 commands
+    # We can get blocks count from the same period data
+    {
+        (ccusage blocks --since $period_start --json --offline 2>/dev/null > "$tmpdir/period_blocks.json") &
+        (ccusage daily --since $today --until $today --json --offline 2>/dev/null > "$tmpdir/today_daily.json") &
+        (ccusage daily --since $seven_days_ago --json --offline 2>/dev/null > "$tmpdir/week_daily.json") &
+        (ccusage daily --since $period_start --json --offline 2>/dev/null > "$tmpdir/period_daily.json") &
+        
+        # Wait for all background jobs to complete
+        wait
+    } 2>/dev/null
+    
+    # Parse period blocks data to count blocks for different periods
+    local all_blocks=$(jq '.blocks' < "$tmpdir/period_blocks.json" 2>/dev/null || echo '[]')
+    
+    # Count today's blocks from the period data
+    local today_blocks=$(echo "$all_blocks" | jq --arg today "$today" '[.[] | select(.startTime | split("T")[0] | gsub("-"; "") == $today)] | length' 2>/dev/null || echo "0")
+    
+    # Count week blocks from the period data
+    local week_blocks=$(echo "$all_blocks" | jq --arg start "$seven_days_ago" '[.[] | select(.startTime | split("T")[0] | gsub("-"; "") >= $start)] | length' 2>/dev/null || echo "0")
+    
+    # Total blocks in period
+    local period_blocks=$(echo "$all_blocks" | jq 'length' 2>/dev/null || echo "0")
+    
+    # Parse daily usage data
+    local today_tokens=$(jq '.totals.totalTokens' < "$tmpdir/today_daily.json" 2>/dev/null || echo "0")
+    local today_cost=$(jq '.totals.totalCost' < "$tmpdir/today_daily.json" 2>/dev/null || echo "0")
+    
+    local week_tokens=$(jq '.totals.totalTokens' < "$tmpdir/week_daily.json" 2>/dev/null || echo "0")
+    local week_cost=$(jq '.totals.totalCost' < "$tmpdir/week_daily.json" 2>/dev/null || echo "0")
+    
+    local period_tokens=$(jq '.totals.totalTokens' < "$tmpdir/period_daily.json" 2>/dev/null || echo "0")
+    local period_cost=$(jq '.totals.totalCost' < "$tmpdir/period_daily.json" 2>/dev/null || echo "0")
+    
+    echo "📅 Today's Usage ($today):"
+    echo "  Blocks: $today_blocks (including active)"
+    echo "  Tokens: $(printf "%'d" $today_tokens)"
+    echo "  Cost: \$$(printf "%.2f" $today_cost)"
+    
+    echo ""
+    echo "📅 Last 7 Days Usage (since $seven_days_ago):"
+    echo "  Blocks: $week_blocks"
+    echo "  Tokens: $(printf "%'d" $week_tokens)"
+    echo "  Cost: \$$(printf "%.2f" $week_cost)"
+    
+    # Format the period start date to be human readable
+    local period_display=$(date -j -f "%Y%m%d" "$period_start" "+%b %d, %Y" 2>/dev/null || echo "$period_start")
+    
+    echo ""
+    echo "📅 Current Period Usage (since $period_display):"
+    echo "  Blocks: $period_blocks"
+    echo "  Tokens: $(printf "%'d" $period_tokens)"
+    echo "  Cost: \$$(printf "%.2f" $period_cost)"
+}
+
 
 # Git aliases
 
@@ -33,7 +131,7 @@ alias gpsf='git push --force'
 alias gpsn='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)'
 alias gpl='git pull --rebase'
 
-alias grm='git checkout master && git pull && git checkout - && git rebase master'
+alias grm='git fetch origin && git rebase origin/master'
 
 alias git-delete-all='git branch | grep -v "master" | grep -v "develop" | grep -v ^* | xargs git branch -D'
 alias fresh='go master && gpl && gob'
@@ -96,3 +194,114 @@ alias ni="darwin-rebuild switch --flake ~/dotfiles/nix"
 # Task Master aliases added on 4/14/2025
 alias tm='task-master'
 alias taskmaster='task-master'
+
+# Git worktree-aware checkout function
+gow() {
+    local branch="$1"
+    if [[ -z "$branch" ]]; then
+        echo "Usage: gow <branch>"
+        return 1
+    fi
+    
+    # Get the origin URL
+    local origin_url=$(git remote get-url origin 2>/dev/null)
+    
+    # Website repo origin URL
+    local website_repo_url="git@github.com:mate-academy/website.git"
+    
+    if [[ "$origin_url" == "$website_repo_url" ]]; then
+        # Check if worktree exists for this branch
+        local worktree_path=$(git worktree list | grep "\\[$branch\\]" | awk '{print $1}')
+        
+        if [[ -n "$worktree_path" ]]; then
+            echo "Switching to worktree: $worktree_path"
+            cd "$worktree_path"
+        else
+            echo "No worktree found for branch '$branch', using regular checkout"
+            git checkout "$branch"
+        fi
+    else
+        # Not the website repo, use regular checkout
+        git checkout "$branch"
+    fi
+}
+
+# Create worktree with AI-generated folder name in tmux
+wt() {
+    local branch=""
+    local base="master"
+    local ai_prompt=""
+    local ai_model=""
+    
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            sonnet=*)
+                ai_model="sonnet"
+                ai_prompt="${1#*=}"
+                shift
+                ;;
+            opus=*)
+                ai_model="opus"
+                ai_prompt="${1#*=}"
+                shift
+                ;;
+            *)
+                if [[ -z "$branch" ]]; then
+                    branch="$1"
+                else
+                    base="$1"
+                fi
+                shift
+                ;;
+        esac
+    done
+    
+    if [[ -z "$branch" ]]; then
+        echo "Usage: wt <branch> [base] [sonnet=\"prompt\"] [opus=\"prompt\"]"
+        echo "Examples:"
+        echo "  wt feature/new-dashboard"
+        echo "  wt bugfix/login-issue develop"
+        echo "  wt feature/auth sonnet=\"Help me implement OAuth integration\""
+        echo "  wt feature/ui develop opus=\"Review this UI component design\""
+        return 1
+    fi
+    
+    # Generate folder name using sonnet
+    local folder_name=$(sonnet -p "Create short, human-readable folder name for worktree with branch ${branch}. Do not include task ID in folder name. It should not contain spaces and other special symbols, only a-zA-Z0-9_-. Output folder name only." | tr -d '\n' | tr -d '\r')
+    
+    if [[ -z "$folder_name" ]]; then
+        echo "❌ Failed to generate folder name"
+        return 1
+    fi
+    
+    echo "🤖 Generated folder name: $folder_name"
+    
+    # Check if website tmux session exists
+    if ! tmux has-session -t website 2>/dev/null; then
+        echo "❌ tmux session 'website' not found. Please start it first with 'web' command."
+        return 1
+    fi
+    
+    # Create new tmux window in website session
+    tmux new-window -t website -n "$folder_name" -c "$HOME/mate/website"
+    
+    # Build command to run in tmux
+    local tmux_command="make worktree branch=$branch folder=$folder_name base=$base && cd ../website-$folder_name && npm ci"
+    
+    # Add AI prompt if provided
+    if [[ -n "$ai_prompt" && -n "$ai_model" ]]; then
+        tmux_command="$tmux_command && $ai_model \"$ai_prompt\""
+        echo "🤖 Will run $ai_model with custom prompt after setup"
+    fi
+    
+    # Run worktree creation in the new window
+    tmux send-keys -t "website:$folder_name" "$tmux_command" Enter
+    
+    # Switch to the new window
+    tmux select-window -t "website:$folder_name"
+    
+    echo "✅ Created worktree 'website-$folder_name' for branch '$branch' in tmux window"
+    echo "💡 Use 'tmux attach -t website' to attach to the session"
+}
+

@@ -49,13 +49,18 @@ zinit snippet OMZP::sudo
 zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::command-not-found
+
+# Load completions (moved before loading docker plugin)
+autoload -Uz compinit
+compinit -C
+
+# Add docker plugin after compinit
 zinit snippet OMZP::docker
 
-# Add Docker completions
-fpath=(/Users/yuriiholiuk/.docker/completions $fpath)
-# Load completions
-autoload -Uz compinit
-compinit
+# Add Docker completions if directory exists
+if [[ -d "/Users/yuriiholiuk/.docker/completions" ]]; then
+  fpath=(/Users/yuriiholiuk/.docker/completions $fpath)
+fi
 
 zinit cdreplay -q
 
@@ -71,7 +76,7 @@ bindkey '^[[B' history-search-forward
 
 
 # History
-HISTSIZE=5000
+HISTSIZE=1000000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
@@ -147,3 +152,14 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd z zsh)"
 # Make it silent to prevent p10k warnings.
 eval "$(fnm env --use-on-cd --shell zsh)" > /dev/null 2>&1
+
+# Added by Windsurf
+export PATH="/Users/yuriiholiuk/.codeium/windsurf/bin:$PATH"
+export GOOGLE_CLOUD_PROJECT="cool-agility-460715-b0"
+
+
+export STM32_PRG_PATH=/Applications/STM32CubeProgrammer.app/Contents/MacOs/bin
+source /Users/yuriiholiuk/google-cloud-sdk/path.zsh.inc
+source /Users/yuriiholiuk/google-cloud-sdk/completion.zsh.inc
+export JAVA_HOME=/opt/homebrew/opt/openjdk@11
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
