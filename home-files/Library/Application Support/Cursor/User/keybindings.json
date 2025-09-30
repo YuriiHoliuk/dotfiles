@@ -112,14 +112,6 @@
     "when": "editorHasReferenceProvider"
   },
   {
-    "key": "cmd+i",
-    "command": "composerMode.agent"
-  },
-  {
-    "key": "cmd+l",
-    "command": "composerMode.chat"
-  },
-  {
     "key": "shift+alt+d",
     "command": "gitlens.diffWithPrevious",
     "when": "editorTextFocus && !isInDiffEditor && config.gitlens.keymap == 'alternate' && resource in 'gitlens:tabs:tracked'"
@@ -159,7 +151,19 @@
     "command": "github.pullRequests.nextComment"
   },
   {
-    "key": "shift+alt+p",
-    "command": "github.pullRequests.previousComment"
+    "key": "cmd+i",
+    "command": "-composer.startComposerPrompt"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
+  {
+    "key": "cmd+l",
+    "command": "composer.startComposerPrompt"
+  },
+  {
+    "key": "cmd+e",
+    "command": "composerMode.background"
   }
 ]

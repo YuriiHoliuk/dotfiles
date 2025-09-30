@@ -210,5 +210,7 @@
     ],
     "cSpell.userWords": [
         "uuidv"
-    ]
+    ],
+    "cursor.composer.shouldChimeAfterChatFinishes": true,
+    "cursor.composer.shouldAllowCustomModes": true
 }
