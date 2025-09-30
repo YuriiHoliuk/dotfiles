@@ -1,0 +1,43 @@
+{
+  "description": "Block Control+Option+Command+Shift+Comma/Period",
+  "manipulators": [
+    {
+      "from": {
+        "key_code": "comma",
+        "modifiers": {
+          "mandatory": [
+            "control",
+            "option",
+            "command",
+            "shift"
+          ]
+        }
+      },
+      "to": [
+        {
+          "key_code": "vk_none"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "from": {
+        "key_code": "period",
+        "modifiers": {
+          "mandatory": [
+            "control",
+            "option",
+            "command",
+            "shift"
+          ]
+        }
+      },
+      "to": [
+        {
+          "key_code": "vk_none"
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}

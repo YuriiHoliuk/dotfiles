@@ -1,0 +1,5 @@
+[manager]
+layout = "default"
+
+[layout.default]
+ratio = [3, 2, 3]  # [sidebar, main, preview]
