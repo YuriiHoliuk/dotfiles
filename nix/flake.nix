@@ -79,6 +79,7 @@
             "kubernetes-cli"
             "powerlevel10k"
             "tree-sitter"
+            "dnsmasq"
           ];
           casks = [
             "orbstack"
@@ -95,12 +96,14 @@
             "chatgpt"
             "telegram"
             "bitwarden"
+            "leader-key"
             "figma"
             "slack"
             "signal"
             "whatsapp"
             "zen-browser"
             "transmission"
+            "vlc"
           ];
           masApps = {
             # "Slack" = 803453959;

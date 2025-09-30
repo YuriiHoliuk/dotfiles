@@ -1,5 +1,5 @@
 [user]
-	name = YuriiHoliuk
+	name = Yurii Holiuk
 	email = yurii.holiuk@mate.academy
 [filter "lfs"]
 	clean = git-lfs clean -- %f
