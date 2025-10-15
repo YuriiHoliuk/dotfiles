@@ -14101,3 +14101,332 @@
 
 # 2025-09-29 16:57:41.665597
 +select * from domains where id = 1; select * from languages l where id = 1;
+
+# 2025-10-01 11:04:44.735422
++\d domains
+
+# 2025-10-01 11:17:38.922957
++select * from chats c where id = 39092;
+
+# 2025-10-01 11:18:43.976812
++select * from chats c where id = 187731;
+
+# 2025-10-01 11:31:00.829704
++select * from domains;
+
+# 2025-10-01 11:37:22.685604
++select * from chat_participants cp where chat_id = 187731;
+
+# 2025-10-01 11:53:02.061705
++select domain_id from users where email = 'yurii.holiuk+ik3@mate.academy';
+
+# 2025-10-01 12:02:16.357486
++select * from domains;
+
+# 2025-10-02 09:23:32.682734
++\d subscriptions
+
+# 2025-10-02 10:16:44.346300
++select * from languages l;
+
+# 2025-10-02 10:16:59.100102
++select * from domains;
+
+# 2025-10-02 10:17:18.500491
++select * from domain_items di where domain_id = 28;
+
+# 2025-10-02 10:17:38.332089
++begin;
+
+# 2025-10-02 10:17:50.709229
++delete from domain_items di where id = 1727;
+
+# 2025-10-02 10:18:21.947553
++commit;
+
+# 2025-10-02 10:18:51.817783
++begin; delete from domains where id = 28;
+
+# 2025-10-02 10:19:19.025357
++select id, domain_id from users where domain_id = 28;
+
+# 2025-10-02 10:19:24.584261
++rollback;
+
+# 2025-10-02 10:19:27.287282
++select id, domain_id from users where domain_id = 28;
+
+# 2025-10-02 10:19:48.278519
++update users u set domain_id = 1 where id = 63973;
+
+# 2025-10-02 10:19:51.644686
++begin; delete from domains where id = 28;
+
+# 2025-10-02 10:19:58.177483
++commit;
+
+# 2025-10-02 15:07:21.659941
++select count(*) from users where domain_id is null;
+
+# 2025-10-02 15:28:24.689716
++\d professions
+
+# 2025-10-02 15:29:14.120296
++select distinct item_type from domain_items di;
+
+# 2025-10-02 15:29:34.130405
++select * from domain_items di where item_type = 'PROFESSION';
+
+# 2025-10-07 10:34:09.750870
++select id, slug from test_tasks tt where slug like 'js_%' limit 10;
+
+# 2025-10-07 10:34:25.639348
++select id, slug from test_tasks tt where slug like 'js_%' order by created_at asc limit 10;
+
+# 2025-10-07 11:14:47.130500
++select di.*, c.slug  from domain_items di inner join courses c on c.id = di.item_id where item_type = 'COURSE' and c.type = 'MODULE';
+
+# 2025-10-07 11:14:52.094877
++select di.*, c.slug  from domain_items di inner join courses c on c.id = di.item_id where item_type = 'COURSE' and c.type != 'MODULE';
+
+# 2025-10-07 11:15:16.691284
++select di.domain_id, c.slug, c.type from domain_items di inner join courses c on c.id = di.item_id where item_type = 'COURSE' and c.type != 'MODULE';
+
+# 2025-10-07 11:15:32.925017
++select di.domain_id, c.slug, c.type from domain_items di right join courses c on c.id = di.item_id where item_type = 'COURSE' and c.type != 'MODULE';
+
+# 2025-10-07 11:37:08.985991
++update users set user_role = 'admin', roles_ids = '{1}' WHERE email = 'yurii.holiuk+ik5@mate.academy';
+
+# 2025-10-07 11:37:16.097580
++select * from user_roles ur;
+
+# 2025-10-07 14:10:41.769602
++select distinct item_type from domain_items di;
+
+# 2025-10-07 14:11:28.480961
++select m.id, c.id, di.domain_id from courses as m join course_modules cm ON cm.child_course_id = m.id join courses as c on c.id = cm.parent_course_id join domain_items di on di.item_id = c.id and di.item_type = 'COURSE' where m.type = 'MODULE';
+
+# 2025-10-07 14:11:40.409221
++select m.id, c.id, di.domain_id from courses as m join course_modules cm ON cm.child_course_id = m.id join courses as c on c.id = cm.parent_course_id join domain_items di on di.item_id = c.id and di.item_type = 'COURSE' where m.type = 'MODULE' order by m.id desc;
+
+# 2025-10-07 14:12:29.952461
++\copy(select m.id, c.id, di.domain_id from courses as m join course_modules cm ON cm.child_course_id = m.id join courses as c on c.id = cm.parent_course_id join domain_items di on di.item_id = c.id and di.item_type = 'COURSE' where m.type = 'MODULE' order by m.id desc) to 'module_domains.csv' with csv header
+
+# 2025-10-07 14:13:10.047074
++\copy (
++  SELECT
++    m.id AS module_id,
++    c.id AS course_id,
++    di.domain_id
++  FROM courses AS m
++  JOIN course_modules cm ON cm.child_course_id = m.id
++  JOIN courses AS c ON c.id = cm.parent_course_id
++  JOIN domain_items di ON di.item_id = c.id AND di.item_type = 'COURSE'
++  WHERE m.type = 'MODULE'
++  ORDER BY m.id DESC
++) TO 'module_domains.csv' WITH CSV HEADER;
+
+# 2025-10-07 14:32:16.825165
++select * from domains;
+
+# 2025-10-07 14:33:36.819017
++\copy (
++  SELECT
++    m.id AS module_id,
++    c.id AS course_id,
++    di.domain_id
++  FROM courses AS m
++  JOIN course_modules cm ON cm.child_course_id = m.id
++  JOIN courses AS c ON c.id = cm.parent_course_id
++  JOIN domain_items di ON di.item_id = c.id AND di.item_type = 'COURSE'
++  WHERE m.type = 'MODULE'
++  ORDER BY m.id DESC
++) TO 'module_domains.csv' WITH CSV HEADER
+
+# 2025-10-07 14:34:42.287990
++\copy (
++  SELECT
++    m.id AS module_id,
++    c.id AS course_id,
++    di.domain_id
++  FROM courses AS m
++  JOIN course_modules cm ON cm.child_course_id = m.id
++  JOIN courses AS c ON c.id = cm.parent_course_id
++  JOIN domain_items di ON di.item_id = c.id AND di.item_type = 'COURSE'
++  JOIN domains d on di.domain_id = d.id
++  WHERE m.type = 'MODULE'
++  AND d.slug NOT IN ('usa', 'uk')
++  ORDER BY m.id DESC
++) TO 'module_domains.csv' WITH CSV HEADER
+
+# 2025-10-07 21:11:39.570748
++select id from users where email = 'yurii.holiuk@mate.academy';
+
+# 2025-10-07 21:11:48.820137
++select * from domains d;
+
+# 2025-10-07 21:15:34.113921
++begin;
+
+# 2025-10-07 21:15:35.762070
++INSERT INTO domains (slug, bpm_domain_id, active, country_name)
++  VALUES ('inch-kyiv', NULL, true, 'Ukraine');
+
+# 2025-10-07 21:15:43.096607
++ INSERT INTO domain_items (domain_id, item_id, item_type)
++  SELECT
++    d.id as domain_id,
++    l.id as item_id,
++    'LANGUAGE' as item_type
++  FROM domains d
++  CROSS JOIN languages l
++  WHERE d.slug = 'inch-kyiv'
++    AND l.name = 'uk';
+
+# 2025-10-07 21:15:47.025075
++commit;
+
+# 2025-10-07 21:16:23.399271
++begin; update users set domain where id = 63973;
+
+# 2025-10-07 21:16:30.135104
++end;
+
+# 2025-10-07 21:16:47.179913
++begin; update users set domain_id = 29 where id = 63973;
+
+# 2025-10-07 21:16:57.276352
++select email from users where id = 63973;
+
+# 2025-10-07 21:17:00.110737
++commit;
+
+# 2025-10-07 23:31:37.698552
++select id from courses c where slug = 'test-inch-1';
+
+# 2025-10-07 23:31:53.140301
++select * from domain_items di where item_id = 4264;
+
+# 2025-10-07 23:32:06.963417
++select * from domains where id = 676;
+
+# 2025-10-08 12:30:20.529683
++begin; update users set domain_id = 1 where id = 63973;
+
+# 2025-10-08 12:30:24.336260
++select email from users where id = 63973;
+
+# 2025-10-08 12:30:26.986528
++commit;
+
+# 2025-10-08 21:55:19.299413
++select * from users;
+
+# 2025-10-08 21:55:56.172051
++select id, email, user_role, roles_ids from users;
+
+# 2025-10-08 21:56:06.755387
++select * from user_roles ur;
+
+# 2025-10-08 21:56:20.359754
++select * from granted_permissions gp where role_id = 2;
+
+# 2025-10-08 21:56:29.313206
++select * from granted_permissions gp where role_id = 2 and permission = 'LEARN_VIDEOS::WRITE';
+
+# 2025-10-08 22:02:16.431705
++select id, email, user_role, roles_ids from users;
+
+# 2025-10-12 10:35:18.801188
++select id, domain_id from users where email = 'msalichos@gmail.com';
+
+# 2025-10-12 10:35:33.362872
++select * from domains d where id = 26;
+
+# 2025-10-13 13:24:23.438372
++select * from professions where slug like '%eng%';
+
+# 2025-10-13 13:24:43.347398
++select * from domain_items di where item_id = 6;
+
+# 2025-10-13 13:24:59.021576
++select id, slug from courses where id = 6;
+
+# 2025-10-13 13:26:15.953746
++begin; insert into domain_items (doamin_id, item_id, item_type, create_at, updated_at) values (1, 6, 'PROFESSION', now(), now());
+
+# 2025-10-13 13:26:29.016305
++end;
+
+# 2025-10-13 13:26:37.576275
++begin; insert into domain_items (domain_id, item_id, item_type, create_at, updated_at) values (1, 6, 'PROFESSION', now(), now());
+
+# 2025-10-13 13:26:41.300752
++end;
+
+# 2025-10-13 13:26:46.028289
++begin; insert into domain_items (domain_id, item_id, item_type, created_at, updated_at) values (1, 6, 'PROFESSION', now(), now());
+
+# 2025-10-13 13:26:52.069485
++commit;
+
+# 2025-10-13 14:10:20.936448
++select id, email, user_role, roles_ids from users where email = 'yurii.holiuk+inch@mate.academy';
+
+# 2025-10-13 14:10:35.549822
++select * from domains;
+
+# 2025-10-13 14:10:43.428055
++select * from user_roles ur;
+
+# 2025-10-13 14:11:41.885089
++begin; update users set domain_id = 1, roles_ids = '{13}', user_role = 'inch_kyiv_admin' where id = 962301;
+
+# 2025-10-13 14:11:45.327303
++commit;
+
+# 2025-10-13 14:24:25.851051
++select id, email, user_role, roles_ids, domain_id from users where email = 'yurii.holiuk+inch@mate.academy';
+
+# 2025-10-13 14:24:36.520407
++begin; update users set domain_id = 13 where id = 962301;
+
+# 2025-10-13 14:24:51.211668
++select * from domains;
+
+# 2025-10-13 14:24:54.986384
++end;
+
+# 2025-10-13 14:24:55.975208
++select * from domains;
+
+# 2025-10-13 14:25:07.603793
++begin; update users set domain_id = 29 where id = 962301;
+
+# 2025-10-13 14:25:12.617450
++select id, email, user_role, roles_ids, domain_id from users where email = 'yurii.holiuk+inch@mate.academy';
+
+# 2025-10-13 14:30:37.435331
++commit;
+
+# 2025-10-13 16:15:46.957635
++select * from granted_permissions gp where role_id = 13;
+
+# 2025-10-13 16:16:09.548497
++select id, role_id, permission, resources from granted_permissions gp where role_id = 13;
+
+# 2025-10-13 16:16:31.235491
++select id, role_id, permission, resources from granted_permissions gp where role_id = 13 and permission = 'study:ViewProfession';
+
+# 2025-10-13 16:20:39.802656
++begin; update professions set type = 'CAREER_PATH' where slug = 'demo-course-inch-kyiv';
+
+# 2025-10-13 16:20:44.561335
++commit;
+
+# 2025-10-13 16:23:48.920167
++begin; update users set domain_id = 29 where email = 'i.holubchykov@inchkiev.ua';
+
+# 2025-10-13 16:23:52.362075
++commit;
