@@ -5,6 +5,10 @@ vim.cmd([[inoremap <C-y> <cmd>call augment#Accept()<CR>]])
 
 -- Tmux navigation keymaps
 -- These are set here to ensure they're always available, even if the plugin configuration fails
+-- Make gg/G go to the very first/last character of the file
+vim.keymap.set({ "n", "v" }, "gg", "gg0", { desc = "Go to first character of first line" })
+vim.keymap.set({ "n", "v" }, "G", "G$", { desc = "Go to last character of last line" })
+
 vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>", { silent = true, desc = "Navigate Left" })
 vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { silent = true, desc = "Navigate Down" })
 vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", { silent = true, desc = "Navigate Up" })
