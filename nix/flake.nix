@@ -24,9 +24,13 @@
       url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
+    homebrew-graphite = {
+      url = "github:withgraphite/homebrew-tap";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, nixpkgs, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, homebrew-graphite, nixpkgs, home-manager }:
     let
       configuration = { pkgs, config, ... }: {
 
@@ -36,6 +40,8 @@
         environment.systemPackages = with pkgs; [
           neovim
           mkalias
+          python313
+          google-cloud-sdk
           argocd
           aws-iam-authenticator
           awscli2
@@ -43,7 +49,7 @@
           curl
           fzf
           git
-          gitAndTools.git-lfs
+          git-lfs
           jq
           kubeseal
           postgresql_14
@@ -68,6 +74,8 @@
           stow
           ffmpeg
           lazygit
+          just
+          terraform
         ];
 
         homebrew = {
@@ -80,6 +88,7 @@
             "powerlevel10k"
             "tree-sitter"
             "dnsmasq"
+            "withgraphite/tap/graphite"
           ];
           casks = [
             "orbstack"
@@ -120,7 +129,7 @@
             env = pkgs.buildEnv {
               name = "system-applications";
               paths = config.environment.systemPackages;
-              pathsToLink = "/Applications";
+              pathsToLink = [ "/Applications" ];
             };
           in
           pkgs.lib.mkForce ''
@@ -151,14 +160,13 @@
 
         # The platform the configuration will be used on.
         nixpkgs.hostPlatform = "aarch64-darwin";
-        services.nix-daemon.enable = true;
         programs.zsh.enable = true;
-        security.pam.enableSudoTouchIdAuth = true;
+        security.pam.services.sudo_local.touchIdAuth = true;
 
+        # Primary user for system defaults and homebrew
+        system.primaryUser = "yuriiholiuk";
         users.users.yuriiholiuk.home = "/Users/yuriiholiuk";
         home-manager.backupFileExtension = "backup";
-        nix.configureBuildUsers = true;
-        nix.useDaemon = true;
         system.defaults = {
           dock = {
             autohide = true;
@@ -217,6 +225,7 @@
                 "homebrew/core" = homebrew-core;
                 "homebrew/cask" = homebrew-cask;
                 "homebrew/bundle" = homebrew-bundle;
+                "withgraphite/homebrew-tap" = homebrew-graphite;
               };
 
               # Optional: Enable fully-declarative tap management
