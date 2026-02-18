@@ -1,9 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "env": {},
+  "env": {
+    "ENABLE_TOOL_SEARCH": "auto:0"
+  },
   "permissions": {
     "allow": [],
-    "deny": []
+    "deny": [],
+    "defaultMode": "default"
   },
   "hooks": {
     "Stop": [
@@ -16,13 +19,29 @@
           }
         ]
       }
+    ],
+    "Notification": [
+      {
+        "matcher": "idle_prompt|elicitation_dialog",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Funk.aiff"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
   },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true
+  },
   "alwaysThinkingEnabled": true,
+  "autoUpdatesChannel": "latest",
+  "skipDangerousModePermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754085709196
   }
