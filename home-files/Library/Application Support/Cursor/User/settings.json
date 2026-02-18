@@ -212,5 +212,19 @@
         "uuidv"
     ],
     "cursor.composer.shouldChimeAfterChatFinishes": true,
-    "cursor.composer.shouldAllowCustomModes": true
+    "cursor.composer.shouldAllowCustomModes": true,
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "cursor.agent_layout_browser_beta_setting": true,
+    "typescript.tsserver.maxTsServerMemory": 8192,
+    "typescript.tsserver.nodePath": "node",
+    "pixelbyte.love2d.path": "/Applications/love.app/Contents/MacOS/love",
+    "scm.defaultViewMode": "tree"
 }
