@@ -13,13 +13,14 @@ alias mkdir='mkdir -pv'
 alias h='history'
 
 alias find='fd'
-alias grep='rg'
 alias cat='bat'
+alias love='/Applications/love.app/Contents/MacOS/love'
 
 # Common
 # alias claude='claude --dangerously-skip-permissions'
-alias sonnet='claude --dangerously-skip-permissions --model sonnet'
 alias opus='claude --dangerously-skip-permissions --model opus'
+alias sonnet='claude --dangerously-skip-permissions --model sonnet'
+alias haiku='claude --dangerously-skip-permissions --model haiku'
 alias gemini='gemini --yolo'
 
 # Replace the old alias with a function
@@ -136,6 +137,19 @@ alias grm='git fetch origin && git rebase origin/master'
 alias git-delete-all='git branch | grep -v "master" | grep -v "develop" | grep -v ^* | xargs git branch -D'
 alias fresh='go master && gpl && gob'
 
+# Navigate to git root or home
+zz() {
+    local git_root=$(git rev-parse --show-toplevel 2>/dev/null)
+
+    if [[ -n "$git_root" ]]; then
+        if [[ "$PWD" != "$git_root" ]]; then
+            cd "$git_root"
+        fi
+    else
+        cd ~
+    fi
+}
+
 # Web development
 alias chrome='open -a "Google Chrome"'
 alias cu='chrome https://app.clickup.com'
@@ -147,6 +161,25 @@ alias web="tmuxinator start website"
 alias dot="tmuxinator start dotfiles"
 alias test-api="tmuxinator start test-api"
 alias os="~/mate/website/cli-tools/opensearch-cli/dist/src/index.js"
+
+# Database queries with nushell tables
+dbdev() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: dbdev 'SELECT query'"
+        return 1
+    fi
+    PGPASSWORD=$(aws rds generate-db-auth-token --hostname=$POSTGRES_HOST --port=$POSTGRES_PORT --region=$AWS_REGION --username=$POSTGRES_USER_IAM) \
+    psql -h $POSTGRES_HOST -p $POSTGRES_PORT -U $POSTGRES_USER_IAM -d mate_development -t -A -F',' -c "$1" | nu -c "from csv | table"
+}
+
+dbprod() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: dbprod 'SELECT query'"
+        return 1
+    fi
+    PGPASSWORD=$(aws rds generate-db-auth-token --hostname=$POSTGRES_HOST_PRODUCTION --port=$POSTGRES_PORT --region=$AWS_REGION --username=$POSTGRES_USER_IAM) \
+    psql --host=$POSTGRES_HOST_PRODUCTION --port=$POSTGRES_PORT --user=$POSTGRES_USER_IAM --dbname=mate_production -t -A -F',' -c "$1" | nu -c "from csv | table"
+}
 
 # tmux
 alias d="tmux detach"
@@ -189,7 +222,7 @@ alias vv="nvim ."
 # NixOS aliases
 alias ne="nvim ~/dotfiles/nix/flake.nix"
 alias neh="nvim ~/dotfiles/nix/home.nix"
-alias ni="darwin-rebuild switch --flake ~/dotfiles/nix"
+alias ni="sudo darwin-rebuild switch --flake ~/dotfiles/nix"
 
 # Task Master aliases added on 4/14/2025
 alias tm='task-master'
@@ -226,13 +259,14 @@ gow() {
     fi
 }
 
-# Create worktree with AI-generated folder name in tmux
+# Create worktree with AI-generated folder name in tmux (supports new and existing branches)
 wt() {
     local branch=""
     local base="master"
     local ai_prompt=""
     local ai_model=""
-    
+    local modules="all"
+
     # Parse arguments
     while [[ $# -gt 0 ]]; do
         case $1 in
@@ -246,6 +280,14 @@ wt() {
                 ai_prompt="${1#*=}"
                 shift
                 ;;
+            --minimal)
+                modules="minimal"
+                shift
+                ;;
+            --full)
+                modules="all"
+                shift
+                ;;
             *)
                 if [[ -z "$branch" ]]; then
                     branch="$1"
@@ -256,52 +298,117 @@ wt() {
                 ;;
         esac
     done
-    
+
     if [[ -z "$branch" ]]; then
-        echo "Usage: wt <branch> [base] [sonnet=\"prompt\"] [opus=\"prompt\"]"
-        echo "Examples:"
-        echo "  wt feature/new-dashboard"
-        echo "  wt bugfix/login-issue develop"
+        echo "Usage: wt <branch> [base] [--minimal|--full] [sonnet=\"prompt\"] [opus=\"prompt\"]"
+        echo ""
+        echo "For NEW branches:"
+        echo "  wt feature/new-dashboard                          # Copy all modules (default)"
+        echo "  wt feature/new-dashboard develop                  # Create from develop instead of master"
+        echo "  wt feature/new-dashboard --minimal                # Copy only root, api, frontend (faster)"
+        echo "  wt feature/new-dashboard develop --minimal"
+        echo ""
+        echo "For EXISTING branches (base is optional and ignored):"
+        echo "  wt PF-12345_existing-branch"
+        echo "  wt PF-12345_existing-branch --minimal              # Copy only root, api, frontend"
+        echo ""
+        echo "With AI prompts:"
         echo "  wt feature/auth sonnet=\"Help me implement OAuth integration\""
-        echo "  wt feature/ui develop opus=\"Review this UI component design\""
+        echo "  wt feature/ui develop --minimal opus=\"Review this UI component design\""
         return 1
     fi
-    
+
+    # Check if branch exists locally or remotely
+    local branch_exists_locally=false
+    local branch_exists_remotely=false
+    local branch_info=""
+
+    if git show-ref --verify --quiet refs/heads/$branch 2>/dev/null; then
+        branch_exists_locally=true
+        branch_info="existing local branch"
+    elif git show-ref --verify --quiet refs/remotes/origin/$branch 2>/dev/null; then
+        branch_exists_remotely=true
+        branch_info="existing remote branch"
+    else
+        branch_info="new branch"
+    fi
+
     # Generate folder name using sonnet
     local folder_name=$(sonnet -p "Create short, human-readable folder name for worktree with branch ${branch}. Do not include task ID in folder name. It should not contain spaces and other special symbols, only a-zA-Z0-9_-. Output folder name only." | tr -d '\n' | tr -d '\r')
-    
+
     if [[ -z "$folder_name" ]]; then
         echo "❌ Failed to generate folder name"
         return 1
     fi
-    
+
     echo "🤖 Generated folder name: $folder_name"
-    
+    echo "ℹ️  Branch type: $branch_info"
+    echo "ℹ️  Modules: $modules"
+
     # Check if website tmux session exists
     if ! tmux has-session -t website 2>/dev/null; then
         echo "❌ tmux session 'website' not found. Please start it first with 'web' command."
         return 1
     fi
-    
+
     # Create new tmux window in website session
     tmux new-window -t website -n "$folder_name" -c "$HOME/mate/website"
-    
+
     # Build command to run in tmux
-    local tmux_command="make worktree branch=$branch folder=$folder_name base=$base && cd ../website-$folder_name && npm ci"
-    
+    # For existing branches, base parameter is still passed (create-worktree.sh ignores it for existing branches)
+    local tmux_command="make worktree branch=$branch folder=$folder_name base=$base modules=$modules && cd ../website-$folder_name && npm ci"
+
     # Add AI prompt if provided
     if [[ -n "$ai_prompt" && -n "$ai_model" ]]; then
         tmux_command="$tmux_command && $ai_model \"$ai_prompt\""
         echo "🤖 Will run $ai_model with custom prompt after setup"
     fi
-    
+
     # Run worktree creation in the new window
     tmux send-keys -t "website:$folder_name" "$tmux_command" Enter
-    
+
     # Switch to the new window
     tmux select-window -t "website:$folder_name"
-    
-    echo "✅ Created worktree 'website-$folder_name' for branch '$branch' in tmux window"
+
+    echo "✅ Creating worktree 'website-$folder_name' for branch '$branch' in tmux window"
     echo "💡 Use 'tmux attach -t website' to attach to the session"
+}
+
+# Custom project creation command
+new() {
+  local subcommand="$1"
+  local project_name="$2"
+
+  case "$subcommand" in
+    game)
+      if [ -z "$project_name" ]; then
+        echo "Usage: new game <project_name>"
+        return 1
+      fi
+
+      if [ -d "$project_name" ]; then
+        echo "Error: Directory '$project_name' already exists"
+        return 1
+      fi
+
+      echo "Creating Love2D game project: $project_name"
+      cp -r ~/projects/love2d/template "$project_name"
+
+      if [ $? -eq 0 ]; then
+        echo "✓ Project '$project_name' created successfully!"
+        echo "  Run: cd $project_name && love ."
+      else
+        echo "✗ Failed to create project"
+        return 1
+      fi
+      ;;
+    *)
+      echo "Usage: new <subcommand> [args]"
+      echo ""
+      echo "Subcommands:"
+      echo "  game <name>  - Create a new Love2D game project"
+      return 1
+      ;;
+  esac
 }
 

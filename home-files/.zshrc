@@ -1,3 +1,10 @@
+# OPENSPEC:START
+# OpenSpec shell completions configuration
+fpath=("/Users/yuriiholiuk/.zsh/completions" $fpath)
+autoload -Uz compinit
+compinit
+# OPENSPEC:END
+
 # enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -51,6 +58,7 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::command-not-found
 
 # Load completions (moved before loading docker plugin)
+fpath=("/Users/yuriiholiuk/.zsh/completions" $fpath)
 autoload -Uz compinit
 compinit -C
 
@@ -159,7 +167,21 @@ export GOOGLE_CLOUD_PROJECT="cool-agility-460715-b0"
 
 
 export STM32_PRG_PATH=/Applications/STM32CubeProgrammer.app/Contents/MacOs/bin
-source /Users/yuriiholiuk/google-cloud-sdk/path.zsh.inc
-source /Users/yuriiholiuk/google-cloud-sdk/completion.zsh.inc
 export JAVA_HOME=/opt/homebrew/opt/openjdk@11
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/yuriiholiuk/.antigravity/antigravity/bin:$PATH"
+
+# bun completions
+[ -s "/Users/yuriiholiuk/.bun/_bun" ] && source "/Users/yuriiholiuk/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export DISABLE_AUTO_CODE_REVIEW=1
+
+
+# Added by GitButler installer
+eval "$(but completions zsh)"
