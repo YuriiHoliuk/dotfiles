@@ -197,7 +197,7 @@ alias pods="kp get pods"
 alias wpods="watch \"kubectl -n production get pods\""
 
 # Jetson
-alias jt="ssh jetson -t 'zsh -lc \"tmux new-session -A -s main\"'"
+alias jt="ssh jetson -t '~/.nix-profile/bin/zsh -lc \"tmux new-session -A -s main\"'"
 
 # Drones
 # alias python='/usr/bin/python3'
