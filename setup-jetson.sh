@@ -56,7 +56,21 @@ else
     echo "Neovim config already exists, skipping clone."
 fi
 
-# --- 8. Generate SSH key for GitHub ---
+# --- 8. Install ghostty terminfo (for SSH from Ghostty/cmux) ---
+if ! infocmp xterm-ghostty &> /dev/null; then
+    echo "Installing ghostty terminfo..."
+    if [ -f "$HOME/dotfiles/ghostty.terminfo" ]; then
+        tic -x "$HOME/dotfiles/ghostty.terminfo"
+        echo "ghostty terminfo installed."
+    else
+        echo "WARNING: ghostty.terminfo not found in dotfiles. Copy it from Mac:"
+        echo "  scp /tmp/ghostty.terminfo jetson:~/dotfiles/ghostty.terminfo"
+    fi
+else
+    echo "ghostty terminfo already installed, skipping."
+fi
+
+# --- 9. Generate SSH key for GitHub ---
 if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
     echo "Generating SSH key..."
     ssh-keygen -t ed25519 -C "yurii.holiuk@mate.academy" -f ~/.ssh/id_ed25519 -N ""
@@ -69,7 +83,7 @@ else
     echo "SSH key already exists, skipping."
 fi
 
-# --- 9. Add docker group ---
+# --- 10. Add docker group ---
 if ! groups | grep -q docker; then
     echo "Adding user to docker group..."
     sudo usermod -aG docker "$USER"
