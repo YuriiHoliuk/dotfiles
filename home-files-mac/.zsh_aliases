@@ -188,7 +188,7 @@ alias ac="tmux attach -t configs"
 alias ad="tmux attach -t db"
 
 # Home files
-alias stw="stow --dir="$HOME/dotfiles" --target="$HOME" home-files"
+alias stw="stow --dir=$HOME/dotfiles --target=$HOME home-files home-files-mac"
 
 # Kubernetes
 alias k="kubectl"

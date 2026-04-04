@@ -1,5 +1,5 @@
 {
-  description = "Bionicus's Mac configuration";
+  description = "Bionicus's machine configurations";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -244,5 +244,15 @@
       };
 
       darwinPackages = self.darwinConfigurations."Yuriis-MacBook-Pro".pkgs;
+
+      # Jetson Orin NX (aarch64-linux) via standalone home-manager
+      # Apply with: home-manager switch --flake ~/dotfiles/nix#jetson
+      homeConfigurations."jetson" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "aarch64-linux";
+          config.allowUnfree = true;
+        };
+        modules = [ ./home-jetson.nix ];
+      };
     };
 }
