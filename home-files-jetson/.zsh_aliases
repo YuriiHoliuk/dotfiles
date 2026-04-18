@@ -16,7 +16,7 @@ alias find='fd'
 alias cat='bat'
 
 # Claude Code
-alias opus='claude --dangerously-skip-permissions --model "claude-opus-4-6[1m]"'
+alias opus='claude --dangerously-skip-permissions --model "claude-opus-4-7[1m]"'
 alias sonnet='claude --dangerously-skip-permissions --model sonnet'
 alias haiku='claude --dangerously-skip-permissions --model haiku'
 

@@ -18,7 +18,7 @@ alias love='/Applications/love.app/Contents/MacOS/love'
 
 # Common
 # alias claude='claude --dangerously-skip-permissions'
-alias opus='claude --dangerously-skip-permissions --model opus'
+alias opus='claude --dangerously-skip-permissions --model "claude-opus-4-7[1m]"'
 alias sonnet='claude --dangerously-skip-permissions --model sonnet'
 alias haiku='claude --dangerously-skip-permissions --model haiku'
 alias gemini='gemini --yolo'
