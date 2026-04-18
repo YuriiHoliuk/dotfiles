@@ -1,0 +1,68 @@
+{
+  "homelab_tasks": [
+    {
+      "id": 1,
+      "title": "Create accounts for Solomiia",
+      "description": "Set up wife's accounts across homelab services (Jellyfin, Jellyseerr, etc.)",
+      "priority": "high",
+      "status": "todo",
+      "tags": ["users", "quick"]
+    },
+    {
+      "id": 2,
+      "title": "Copy quality profiles from Radarr to Sonarr",
+      "description": "Mirror Radarr quality/release profiles into Sonarr so movies and shows use consistent settings",
+      "priority": "medium",
+      "status": "todo",
+      "tags": ["config", "quick"]
+    },
+    {
+      "id": 3,
+      "title": "Commit all service configs to repo",
+      "description": "Audit and version-control settings: Radarr/Sonarr profiles, Pi-hole domain lists, Jellyfin config, etc. Ensure ~/homelab repo has everything needed to recreate the stack from scratch",
+      "priority": "high",
+      "status": "todo",
+      "tags": ["config", "git", "infra"]
+    },
+    {
+      "id": 4,
+      "title": "Add Watcharr",
+      "description": "Deploy Watcharr for personal movie/show ratings and watchlist. Connect to Radarr/Sonarr for downloads. Evaluate if it can replace Jellyseerr for solo use",
+      "priority": "medium",
+      "status": "todo",
+      "tags": ["service", "new"]
+    },
+    {
+      "id": 5,
+      "title": "Migrate from Docker Compose to local Kubernetes",
+      "description": "Move homelab stack to k3s or MicroK8s on Jetson. Write Helm charts or manifests for all services. Plan migration path with minimal downtime",
+      "priority": "low",
+      "status": "todo",
+      "tags": ["infra", "big"]
+    },
+    {
+      "id": 6,
+      "title": "Library management from OpenClaw",
+      "description": "Build or find a service/script to browse OpenClaw catalog and add items directly to Radarr/Sonarr library",
+      "priority": "medium",
+      "status": "todo",
+      "tags": ["service", "automation", "research"]
+    },
+    {
+      "id": 7,
+      "title": "Instagram 'To Watch' list → library pipeline",
+      "description": "Monitor saved/bookmarked Instagram posts (movie recommendations), extract titles, and auto-add to Radarr/Sonarr or Watcharr watchlist. Likely needs a custom bot or n8n/Huginn workflow",
+      "priority": "low",
+      "status": "todo",
+      "tags": ["automation", "research"]
+    },
+    {
+      "id": 8,
+      "title": "Buy bigger storage",
+      "description": "Current SSD is limited. Research options: larger NVMe SSD, external HDD, or a small NAS (e.g. 2-bay Synology). Consider Jetson's USB/NVMe bandwidth",
+      "priority": "medium",
+      "status": "todo",
+      "tags": ["hardware", "research"]
+    }
+  ]
+}
